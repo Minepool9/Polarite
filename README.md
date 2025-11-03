@@ -13,6 +13,7 @@ Works with **Steam**
 - Arenas
 
 ### Manual Installation
-1. Install **BepInEx** for ULTRAKILL  
-2. Drop **the downloaded file** into your `BepInEx/plugins` folder  
-3. Launch ULTRAKILL
+1. Install **BepInEx** for ULTRAKILL
+2. Extract the **downloaded ZIP**
+3. Drop **the extracted zip** into your `BepInEx/plugins` folder  
+4. Launch ULTRAKILL
