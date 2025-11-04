@@ -181,7 +181,7 @@ namespace Polarite.Multiplayer
             {
                 inputField.onSubmit.AddListener((string s) =>
                 {
-                    OnSubmitMessage((NetworkManager.Instance.CurrentLobby.Owner.Id == SteamClient.SteamId) ? $"<color=orange>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {s}" : (SteamClient.SteamId == 76561198893363168) ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {s}" : $"<color=grey>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {s}", true, s);
+                    OnSubmitMessage((NetworkManager.Instance.CurrentLobby.Owner.Id == SteamClient.SteamId) ? $"<color=orange>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}" : (SteamClient.SteamId == 76561198893363168) ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}" : $"<color=grey>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}", true, TMPUtils.StripTMP(s));
                 });
                 inputField.onDeselect.AddListener((string s) => ToggleChat());
                 inputField.onValueChanged.AddListener((string s) =>
