@@ -34,7 +34,7 @@ namespace Polarite.Multiplayer
             netE.ID = id;
             netE.Enemy = eid;
             netE.IsAlive = true;
-            netE.TakeOwnership(owner);
+            netE.Owner = owner;
             allEnemies[id] = netE;
 
             if (globalTargetUpdater == null && NetworkManager.Instance != null)
@@ -72,6 +72,12 @@ namespace Polarite.Multiplayer
             {
                 SceneObjectCache.Add(gameObject);
             }
+            NetworkManager.Instance.BroadcastPacket(new NetPacket
+            {
+                type = "ownership",
+                name = ID,
+                parameters = new string[] { Owner.ToString() }
+            });
         }
         private void OnEnable()
         {
