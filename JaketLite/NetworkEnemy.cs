@@ -14,7 +14,6 @@ namespace Polarite.Multiplayer
         public string ID;
         public EnemyIdentifier Enemy;
         public bool IsAlive = true;
-        public float HP;
         public ulong Owner = 0;
 
         private static readonly Dictionary<string, NetworkEnemy> allEnemies = new Dictionary<string, NetworkEnemy>();
@@ -78,17 +77,23 @@ namespace Polarite.Multiplayer
                 name = ID,
                 parameters = new string[] { Owner.ToString() }
             });
-            if(Enemy.isBoss && NetworkManager.InLobby && NetworkManager.Instance.CurrentLobby.MemberCount > 1)
+            if (Enemy.isBoss && NetworkManager.InLobby && NetworkManager.Instance.CurrentLobby.MemberCount > 1)
             {
                 float mult = 1f + (Mathf.Max(0, NetworkManager.Instance.CurrentLobby.MemberCount - 1) * 1.5f);
-                Enemy.health *= mult;
+                SetHealth(Enemy.health * mult);
+                BossHealthBar bHB = GetComponent<BossHealthBar>();
+                if (bHB != null)
+                {
+                    foreach(var layer in bHB.healthLayers)
+                    {
+                        layer.health *= mult;
+                    }
+                    // so the boss bar can refresh
+                    bHB.enabled = false;
+                    bHB.enabled = true;
+                }
             }
         }
-        private void OnEnable()
-        {
-            SetHealth();
-        }
-
         private void OnDestroy()
         {
             allEnemies.Remove(ID);
@@ -204,8 +209,7 @@ namespace Polarite.Multiplayer
                 parameters = new string[]
                 {
                     pos.x.ToString("F3"), pos.y.ToString("F3"), pos.z.ToString("F3"),
-                    rot.x.ToString("F3"), rot.y.ToString("F3"), rot.z.ToString("F3"), rot.w.ToString("F3"),
-                    Enemy.health.ToString("F3")
+                    rot.x.ToString("F3"), rot.y.ToString("F3"), rot.z.ToString("F3"), rot.w.ToString("F3")
                 }
             };
 
@@ -231,9 +235,8 @@ namespace Polarite.Multiplayer
 
             targetPos = pos;
             targetRot = rot;
-            HP = float.Parse(parameters[7]);
         }
-        public void SetHealth()
+        public void SetHealth(float hp)
         {
             if (Enemy == null || !IsAlive) return;
             Machine mach = Enemy.machine;
@@ -243,25 +246,25 @@ namespace Polarite.Multiplayer
             Drone drone = Enemy.drone;
             if (mach != null)
             {
-                mach.health = HP;
+                mach.health = hp;
             }
             if (zom != null)
             {
-                zom.health = HP;
+                zom.health = hp;
             }
             if (spi != null)
             {
-                spi.health = HP;
+                spi.health = hp;
             }
             if (stat != null)
             {
-                stat.health = HP;
+                stat.health = hp;
             }
             if (drone != null)
             {
-                drone.health = HP;
+                drone.health = hp;
             }
-            Enemy.health = HP;
+            Enemy.health = hp;
         }
 
         public void BroadcastDamage(float damage, string hitter, bool weakpoint, Vector3 point)

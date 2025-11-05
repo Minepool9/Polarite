@@ -176,7 +176,6 @@ namespace Polarite.Multiplayer
                     if(netE != null)
                     {
                        netE.ApplyState(packet.parameters);
-                       netE.HP = float.Parse(packet.parameters[7]);
                     }
                     break;
                 case "enemydmg":
