@@ -358,11 +358,14 @@ namespace Polarite.Multiplayer
                 SteamFriends.SetRichPresence("connect", lobby.Value.Id.ToString());
                 SteamFriends.SetRichPresence("status", "In Lobby");
                 SteamFriends.SetRichPresence("steam_display", "In Lobby");
-                ItePlugin.discord.GetActivityManager().UpdateActivity(new Activity
+                if(ItePlugin.HasDiscord)
                 {
-                    Details = $"Playing in: {Instance.CurrentLobby.GetData("levelName")}, In Polarite Lobby ({CurrentLobby.MemberCount}/{CurrentLobby.MaxMembers})",
-                    Instance = true
-                }, delegate { });
+                    ItePlugin.discord.GetActivityManager().UpdateActivity(new Activity
+                    {
+                        Details = $"Playing in: {Instance.CurrentLobby.GetData("levelName")}, In Polarite Lobby ({CurrentLobby.MemberCount}/{CurrentLobby.MaxMembers})",
+                        Instance = true
+                    }, delegate { });
+                }
             }
             else
             {
@@ -371,16 +374,19 @@ namespace Polarite.Multiplayer
                 SteamFriends.SetRichPresence("status", null);
                 SteamFriends.SetRichPresence("steam_display", null);
 
-                string levelName = StockMapInfo.Instance.levelName;
-                if (string.IsNullOrEmpty(levelName))
+                if(ItePlugin.HasDiscord)
                 {
-                    levelName = SceneHelper.CurrentScene;
+                    string levelName = StockMapInfo.Instance.levelName;
+                    if (string.IsNullOrEmpty(levelName))
+                    {
+                        levelName = SceneHelper.CurrentScene;
+                    }
+                    ItePlugin.discord.GetActivityManager().UpdateActivity(new Activity
+                    {
+                        Details = $"Playing in: {levelName}, Not In Lobby",
+                        Instance = true
+                    }, delegate { });
                 }
-                ItePlugin.discord.GetActivityManager().UpdateActivity(new Activity
-                {
-                    Details = $"Playing in: {levelName}, Not In Lobby",
-                    Instance = true
-                }, delegate { });
             }
         }
         private void HandleMemberJoined(Lobby lobby, Friend member)

@@ -67,7 +67,9 @@ namespace Polarite
 
         public static GameObject leaveButton, joinButton, hostButton, copyButton, inviteButton, playerListButton;
 
-        public static Discord.Discord discord = new Discord.Discord(1432308384798867456, 1uL);
+        public static Discord.Discord discord;
+
+        public static bool HasDiscord;
 
         public void Awake()
         {
@@ -99,10 +101,25 @@ namespace Polarite
                 }
             };
             mainBundle = AssetBundle.LoadFromFile(Path.Combine(Directory.GetParent(Info.Location).FullName, "polariteassets.bundle"));
+            TryRunDiscord();
         }
         public void OnApplicationQuit()
         {
             discord.Dispose();
+        }
+        public bool TryRunDiscord()
+        {
+            try
+            {
+                discord = new Discord.Discord(1432308384798867456, 1uL);
+                HasDiscord = true;
+                return true;
+            }
+            catch
+            {
+                log.LogWarning("User doesn't have discord in the background, Skipping discord!");
+                return false;
+            }
         }
 
         public void Update()
@@ -355,28 +372,31 @@ namespace Polarite
                 }
                 NetworkManager.Instance.CurrentLobby.SetData("levelName", levelName);
             }
-            if(NetworkManager.HasRichPresence)
+            if(HasDiscord)
             {
-                discord.GetActivityManager().UpdateActivity(new Activity
-                 {
-                     ApplicationId = 1432308384798867456,
-                     Details = $"Playing in: {NetworkManager.Instance.CurrentLobby.GetData("levelName")}, In Polarite Lobby ({NetworkManager.Instance.CurrentLobby.MemberCount}/{NetworkManager.Instance.CurrentLobby.MaxMembers})",
-                     Instance = true
-                 }, delegate { });
-            }
-            else
-            {
-                string levelName = StockMapInfo.Instance.levelName;
-                if (string.IsNullOrEmpty(levelName))
+                if (NetworkManager.HasRichPresence)
                 {
-                    levelName = SceneHelper.CurrentScene;
+                    discord.GetActivityManager().UpdateActivity(new Activity
+                    {
+                        ApplicationId = 1432308384798867456,
+                        Details = $"Playing in: {NetworkManager.Instance.CurrentLobby.GetData("levelName")}, In Polarite Lobby ({NetworkManager.Instance.CurrentLobby.MemberCount}/{NetworkManager.Instance.CurrentLobby.MaxMembers})",
+                        Instance = true
+                    }, delegate { });
                 }
-                discord.GetActivityManager().UpdateActivity(new Activity
+                else
                 {
-                    ApplicationId = 1432308384798867456,
-                    Details = $"Playing in: {levelName}, Not In Lobby",
-                    Instance = true
-                }, delegate { });
+                    string levelName = StockMapInfo.Instance.levelName;
+                    if (string.IsNullOrEmpty(levelName))
+                    {
+                        levelName = SceneHelper.CurrentScene;
+                    }
+                    discord.GetActivityManager().UpdateActivity(new Activity
+                    {
+                        ApplicationId = 1432308384798867456,
+                        Details = $"Playing in: {levelName}, Not In Lobby",
+                        Instance = true
+                    }, delegate { });
+                }
             }
             NetworkPlayer.ToggleColsForAll(false);
             Instance.StartCoroutine(RestartCols());
