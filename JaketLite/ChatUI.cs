@@ -231,36 +231,36 @@ namespace Polarite.Multiplayer
 
         void ToggleChat()
         {
-            if(!NetworkManager.InLobby)
+            if (!NetworkManager.InLobby)
             {
                 return;
             }
-            if (onlyShowForBit != null)
-            {
-                StopCoroutine(onlyShowForBit);
-            }
             bool wereCheatsOn = CheatsController.Instance.cheatsEnabled;
+            bool wereFistControlOn = FistControl.Instance.enabled;
+            bool wereCameraOn = CameraController.Instance.enabled;
+            bool isMenuOpen = !isTyping;
+
             isTyping = !isTyping;
 
-            if (chatPanel != null)
-                chatPanel.SetActive(isTyping);
-
-            if(isTyping)
+            if (isTyping)
             {
                 NewMovement.Instance.DeactivatePlayer();
                 NewMovement.Instance.rb.isKinematic = true;
                 CheatsController.Instance.enabled = !wereCheatsOn;
+                FistControl.Instance.enabled = false;
+                CameraController.Instance.enabled = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
                 NewMovement.Instance.ActivatePlayer();
                 NewMovement.Instance.rb.isKinematic = false;
                 CheatsController.Instance.cheatsEnabled = wereCheatsOn;
-            }
-            if (isTyping && inputField != null)
-            {
-                inputField.text = "";
-                inputField.ActivateInputField();
+                FistControl.Instance.enabled = wereFistControlOn;
+                CameraController.Instance.enabled = wereCameraOn;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
 
@@ -282,7 +282,12 @@ namespace Polarite.Multiplayer
 
         public void OnSubmitMessage(string message, bool network, string realMsg, Transform parent = null, bool tts = true)
         {
-            if(network)
+            if (string.IsNullOrWhiteSpace(message) || !System.Text.RegularExpressions.Regex.IsMatch(message, "[A-Za-z]"))
+            {
+                return;
+            }
+
+            if (network)
             {
                 NetworkManager.Instance.BroadcastPacket(new NetPacket
                 {
@@ -290,29 +295,27 @@ namespace Polarite.Multiplayer
                     name = realMsg,
                     parameters = new string[]
                     {
-                        tts.ToString()
+                tts.ToString()
                     }
                 });
             }
-            if(onlyShowForBit != null)
+
+            if (onlyShowForBit != null)
             {
                 StopCoroutine(onlyShowForBit);
             }
-            if (string.IsNullOrWhiteSpace(message))
-            {
-                return;
-            }
+
             if (chatLog != null)
             {
                 chatLog.text += "\n" + message;
-
                 string[] lines = chatLog.text.Split('\n');
                 if (lines.Length > maxMessages)
                 {
                     chatLog.text = string.Join("\n", lines, lines.Length - maxMessages, maxMessages);
                 }
             }
-            if(ItePlugin.canTTS.value)
+
+            if (ItePlugin.canTTS.value)
             {
                 TextReader.SayString(realMsg, parent);
             }
@@ -328,6 +331,7 @@ namespace Polarite.Multiplayer
                 StartCoroutine(ScrollToBottomNextFrame());
             }
         }
+
         IEnumerator ScrollToBottomNextFrame()
         {
             yield return null;
