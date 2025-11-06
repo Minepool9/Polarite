@@ -41,7 +41,7 @@ namespace Polarite
         V2
     }
 
-    [BepInPlugin("com.d1g1tal.polarite", "Polarite", "1.0.0")]
+    [BepInPlugin("com.d1g1tal.polarite", "Polarite", "1.0.1")]
     public class ItePlugin : BaseUnityPlugin
     {
         public static PluginConfigurator config = PluginConfigurator.Create("Polarite Config", "com.d1g1tal.polarite");
