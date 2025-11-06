@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using Polarite.Multiplayer;
+using UnityEngine.UI;
 
 namespace Polarite
 {
@@ -30,6 +31,12 @@ namespace Polarite
         private float targetHP;
         private Vector3 baseHPScale;
 
+        // voice avatar
+        private Image talkingAvatar;
+        private float talkingLevel = 0f;
+        private float lastTalkTime = -9999f;
+        private float talkFadeSeconds = 2f;
+
         void Start()
         {
             displayedHP = currentHp;
@@ -48,10 +55,39 @@ namespace Polarite
             id = steamId;
             transform.Find("Canvas").GetComponent<Canvas>().worldCamera = MonoSingleton<CameraController>.Instance.cam;
             player = playerT;
+
+            // create or find avatar image
+            Transform existing = mainLookAt.Find("TalkingPFP");
+            if (existing != null)
+            {
+                talkingAvatar = existing.GetComponent<Image>();
+            }
+            else
+            {
+                GameObject go = new GameObject("TalkingPFP", typeof(RectTransform), typeof(Image));
+                go.transform.SetParent(mainLookAt, false);
+                talkingAvatar = go.GetComponent<Image>();
+                RectTransform rt = go.GetComponent<RectTransform>();
+                // position above hpText
+                rt.anchorMin = new Vector2(0.5f, 1f);
+                rt.anchorMax = new Vector2(0.5f, 1f);
+                rt.pivot = new Vector2(0.5f, 0f);
+                rt.anchoredPosition = new Vector2(0f, 10f);
+                rt.sizeDelta = new Vector2(32f, 32f);
+            }
+
+            if (talkingAvatar != null)
+            {
+                talkingAvatar.color = new Color(1f, 1f, 1f, 0f);
+                // fetch avatar image
+                PlayerList.FetchAvatar(talkingAvatar, new Friend(id));
+            }
         }
 
         public void Update()
         {
+            if (nameText == null) return;
+
             float textWidth = nameText.preferredWidth / 6.25f;
             if (Mathf.Abs(textWidth - lastWidth) > 0.001f)
             {
@@ -71,7 +107,11 @@ namespace Polarite
 
             nameText.text = playerName;
 
-            bool isHost = NetworkManager.Instance.CurrentLobby.Owner.Id == id;
+            bool isHost = false;
+            if (NetworkManager.Instance != null && NetworkManager.Instance.CurrentLobby.Id != 0)
+            {
+                try { isHost = NetworkManager.Instance.CurrentLobby.Owner.Id == id; } catch { isHost = false; }
+            }
             hostIcon.gameObject.SetActive(isHost);
             nameText.color = isHost ? Color.cyan : Color.white;
 
@@ -100,10 +140,38 @@ namespace Polarite
                 float scale = Mathf.Lerp(1f, heartbeatStrength, beat);
                 hpText.transform.localScale = baseHPScale * scale;
             }
+
+            // update talking avatar alpha based on lastTalkTime and level
+            if (talkingAvatar != null)
+            {
+                float age = Time.time - lastTalkTime;
+                float target = 0f;
+                if (age < talkFadeSeconds)
+                {
+                    target = talkingLevel;
+                }
+                float flicker = 0f;
+                if (talkingLevel > 0.01f)
+                {
+                    flicker = Mathf.Sin(Time.time * 20f) * 0.1f * talkingLevel;
+                }
+                float currentAlpha = talkingAvatar.color.a;
+                float desired = Mathf.Clamp01(target + flicker);
+                float next = Mathf.Lerp(currentAlpha, desired, Time.deltaTime * 8f);
+                Color c = talkingAvatar.color;
+                c.a = next;
+                talkingAvatar.color = c;
+            }
         }
         public void SetHP(float newHP)
         {
             targetHP = Mathf.Clamp(newHP, 0f, 200f);
+        }
+
+        public void SetTalkingLevel(float level)
+        {
+            talkingLevel = Mathf.Clamp01(level);
+            lastTalkTime = Time.time;
         }
     }
 }
