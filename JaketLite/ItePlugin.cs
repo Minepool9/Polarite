@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +40,13 @@ namespace Polarite
         V2
     }
 
+    public enum VoiceMode
+    {
+        PushToTalk,
+        VoiceActivation,
+        ToggleToTalk
+    }
+
     [BepInPlugin("com.d1g1tal.polarite", "Polarite", "1.0.0")]
     public class ItePlugin : BaseUnityPlugin
     {
@@ -53,6 +59,27 @@ namespace Polarite
         public static ConfigHeader ttsbad = new ConfigHeader(config.rootPanel, "<color=yellow>TTS can crash the game!</color>");
 
         public static BoolField canTTS = new BoolField(config.rootPanel, "Play TTS on chat message", "tts", false);
+
+        public static ConfigHeader vcheaderstuff = new ConfigHeader(config.rootPanel, "Stuff related to Voice Chat");
+
+        public static KeyCodeField voicePushToTalk = new KeyCodeField(config.rootPanel, "Push-to-talk key", "voice.ptt", KeyCode.V);
+
+        // voice chat stuff
+        // made by doomahreal
+
+        public static EnumField<VoiceMode> voiceMode = new EnumField<VoiceMode>(config.rootPanel, "Voice mode", "voice.mode", VoiceMode.PushToTalk);
+
+        // which microphone index to use (0 = first device)
+        public static IntField voiceMicIndex = new IntField(config.rootPanel, "Microphone index", "voice.mic", 0);
+
+        // voice activation sensitivity (linear 0-100)
+        public static IntField voiceVADThreshold = new IntField(config.rootPanel, "Voice activation threshold (0-100)", "voice.vad", 30);
+
+        // whether to receive/hear voice chat
+        public static BoolField receiveVoice = new BoolField(config.rootPanel, "Receive voice chat", "voice.receive", true);
+
+        // proximity distance for voice in world units
+        public static FloatField voiceProximity = new FloatField(config.rootPanel, "Voice proximity range", "voice.range", 15f);
 
         internal readonly Harmony harm = new Harmony("com.d1g1tal.polarite");
 

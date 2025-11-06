@@ -131,6 +131,14 @@ namespace Polarite.Multiplayer
                 SteamNetworking.AcceptP2PSessionWithUser(id);
             };
 
+            // Ensure voice manager exists
+            if (VoiceChatManager.Instance == null)
+            {
+                GameObject vc = new GameObject("VoiceChatManager");
+                vc.AddComponent<VoiceChatManager>();
+                DontDestroyOnLoad(vc);
+            }
+
             OnPacketReceived += (NetPacket packet) => PacketReader.ReadPacket(packet);
         }
 
@@ -576,13 +584,36 @@ namespace Polarite.Multiplayer
                 SteamId id = default;
                 if (SteamNetworking.ReadP2PPacket(buffer, ref packetSize, ref id))
                 {
-                    string json = Encoding.UTF8.GetString(buffer, 0, (int)packetSize);
-                    NetPacket packet = JsonUtility.FromJson<NetPacket>(json);
-
-                    if (packet.senderId == SteamClient.SteamId)
+                    // Simple protocol: voice packets start with 0x56 ('V')
+                    if (packetSize > 0 && buffer[0] == 0x56)
+                    {
+                        // Route to voice manager
+                        try
+                        {
+                            VoiceChatManager.Instance?.OnP2PDataReceived(buffer, (int)packetSize, id);
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.LogWarning("[Net] Failed to handle voice packet: " + e);
+                        }
                         continue;
+                    }
 
-                    OnPacketReceived?.Invoke(packet);
+                    try
+                    {
+                        string json = Encoding.UTF8.GetString(buffer, 0, (int)packetSize);
+                        NetPacket packet = JsonUtility.FromJson<NetPacket>(json);
+
+                        if (packet == null) continue;
+                        if (packet.senderId == SteamClient.SteamId)
+                            continue;
+
+                        OnPacketReceived?.Invoke(packet);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogWarning("[Net] Failed to parse packet: " + ex);
+                    }
                 }
             }
         }

@@ -473,6 +473,7 @@
     <Compile Include="SamTTS\sam_c.cs" />
     <Compile Include="SamTTS\TextReader.cs" />
     <Compile Include="SpectatorCam.cs" />
+    <Compile Include="VoiceChatManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
