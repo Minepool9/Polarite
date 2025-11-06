@@ -19,7 +19,7 @@ namespace Polarite.Multiplayer
         {
             if(GetComponent<NetworkEnemy>() == null && NetworkManager.InLobby)
             {
-                NetworkEnemy.Create(id, GetComponent<EnemyIdentifier>(), SteamClient.SteamId);
+                NetworkEnemy.Create(id, GetComponent<EnemyIdentifier>(), (GetComponent<EnemyIdentifier>().isBoss) ? SteamClient.SteamId : NetworkManager.Instance.CurrentLobby.Owner.Id);
             }
             if (NetworkManager.InLobby && !here)
             {
