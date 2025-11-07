@@ -66,6 +66,8 @@ namespace Polarite
         // which microphone index to use (0 = first device)
         public static IntField voiceMicIndex = new IntField(config.rootPanel, "Microphone index", "voice.mic", 0);
 
+        public static ConfigHeader wheresMyMic = new ConfigHeader(config.rootPanel, "0: ");
+
         // voice activation sensitivity (linear 0-100)
         public static IntField voiceVADThreshold = new IntField(config.rootPanel, "Voice activation threshold (0-100)", "voice.vad", 30);
 

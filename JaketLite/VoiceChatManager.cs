@@ -139,7 +139,14 @@ namespace Polarite.Multiplayer
             {
                 if (Microphone.devices == null || Microphone.devices.Length == 0)
                     return;
-
+                for(int i = 0; i < Microphone.devices.Length; i++)
+                {
+                    if(i == 0)
+                    {
+                        ItePlugin.wheresMyMic.text = "";
+                    }
+                    ItePlugin.wheresMyMic.text += $"{i}: " + Microphone.devices[i] + "\n";
+                }
                 int desired = Mathf.Clamp(ItePlugin.voiceMicIndex.value, 0, Microphone.devices.Length - 1);
                 string desiredDevice = Microphone.devices[desired];
                 if (micClip == null || micDevice != desiredDevice || !Microphone.IsRecording(micDevice))
