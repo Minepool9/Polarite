@@ -19,11 +19,8 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "punch",
-                    name = "p"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Punch, w.GetBytes());
                 if(NetworkPlayer.LocalPlayer.testPlayer)
                 {
                     NetworkPlayer.LocalPlayer.PunchAnim();
@@ -36,11 +33,8 @@ namespace Polarite.Patches
         {
             if (NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "coin",
-                    name = "c"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Coin, w.GetBytes());
                 if (NetworkPlayer.LocalPlayer.testPlayer)
                 {
                     NetworkPlayer.LocalPlayer.CoinAnim();
@@ -69,11 +63,8 @@ namespace Polarite.Patches
         {
             if (NetworkManager.InLobby && MonoSingleton<InputManager>.Instance.InputSource.Hook.WasPerformedThisFrame && ___cooldown <= 0f)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "whip",
-                    name = "w"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Whip, w.GetBytes());
                 if (NetworkPlayer.LocalPlayer.testPlayer)
                 {
                     NetworkPlayer.LocalPlayer.WhipAnim();

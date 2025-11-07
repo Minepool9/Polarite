@@ -24,11 +24,9 @@ namespace Polarite.Patches
                 {
                     index = 4;
                 }
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "gun",
-                    name = index.ToString(),
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteInt(index);
+                NetworkManager.Instance.BroadcastPacket(PacketType.Gun, w.GetBytes());
                 if(NetworkPlayer.LocalPlayer.testPlayer)
                 {
                     NetworkPlayer.LocalPlayer.SetWeapon(index);
@@ -46,11 +44,9 @@ namespace Polarite.Patches
                 {
                     index = 4;
                 }
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "gun",
-                    name = index.ToString(),
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteInt(index);
+                NetworkManager.Instance.BroadcastPacket(PacketType.Gun, w.GetBytes());
                 if (NetworkPlayer.LocalPlayer.testPlayer)
                 {
                     NetworkPlayer.LocalPlayer.SetWeapon(index);

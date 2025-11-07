@@ -26,12 +26,10 @@ namespace Polarite.Patches
             }
             if(SceneHelper.CurrentScene != "uk_construct")
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "cheater",
-                    name = NetworkManager.GetNameOfId(SteamClient.SteamId),
-                });
-                NetworkManager.ShoutCheater(NetworkManager.GetNameOfId(SteamClient.SteamId));
+                PacketWriter w = new PacketWriter();
+                w.WriteString(NetworkManager.GetNameOfId(NetworkManager.Id));
+                NetworkManager.Instance.BroadcastPacket(PacketType.Cheater, w.GetBytes());
+                NetworkManager.ShoutCheater(NetworkManager.GetNameOfId(NetworkManager.Id));
             }
             return true;
         }

@@ -31,11 +31,9 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby && __instance.timer <= 0f && __instance.type == hookPointType.Switch)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "hookS",
-                    name = SceneObjectCache.GetScenePath(__instance.gameObject)
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+                NetworkManager.Instance.BroadcastPacket(PacketType.HookS, w.GetBytes());
             }
         }
     }

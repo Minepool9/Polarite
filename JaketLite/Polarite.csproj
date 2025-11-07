@@ -420,6 +420,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryPacketReader.cs" />
     <Compile Include="ChatUI.cs" />
     <Compile Include="ForceOff.cs" />
     <Compile Include="HeadRotate.cs" />
@@ -433,6 +434,7 @@
     <Compile Include="NetworkPlayer.cs" />
     <Compile Include="NetworkTram.cs" />
     <Compile Include="PacketReader.cs" />
+    <Compile Include="PacketWriter.cs" />
     <Compile Include="Patches\ArenaPatch.cs" />
     <Compile Include="Patches\BreakablePatch.cs" />
     <Compile Include="Patches\CheaterPatch.cs" />

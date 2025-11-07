@@ -23,12 +23,10 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "die",
-                    name = DeathMessage
-                });
-                NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(SteamClient.SteamId) + " " + DeathMessage);
+                PacketWriter w = new PacketWriter();
+                w.WriteString(DeathMessage);
+                NetworkManager.Instance.BroadcastPacket(PacketType.Die, w.GetBytes());
+                NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(NetworkManager.Id) + " " + DeathMessage);
             }
         }
     }

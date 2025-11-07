@@ -1,310 +1,370 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Discord;
-
-using HarmonyLib;
-
-using Polarite.Patches;
+using System.Net.Sockets;
 
 using Steamworks;
 
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Polarite.Multiplayer
 {
+    public enum PacketType : byte
+    {
+        None = 0,
+
+        // Player health
+        DamageT = 1,
+        HealT = 2,
+
+        // Level flow
+        Level = 3,
+        Restart = 4,
+        Kick = 5,
+        Ban = 6,
+
+        // Player noises / actions
+        Hurt = 7,
+        Die = 8,
+        Respawn = 9,
+        Jump = 10,
+        Dash = 11,
+
+        // Weapon swaps and animations
+        Gun = 12,
+        Punch = 13,
+        Coin = 14,
+        Whip = 15,
+
+        // Cosmetic changes
+        Skin = 16,
+
+        // Transform + animation + hp
+        Transform = 17,
+
+        // Chat
+        ChatMsg = 18,
+
+        // Enemies
+        EnemyState = 19,
+        EnemyDmg = 20,
+        DeathEnemy = 21,
+        Ownership = 22,
+        EnemySpawn = 23,
+
+        // Arena / level objects
+        Arena = 24,
+        FinalOpen = 25,
+
+        // Breakables
+        Break = 26,
+
+        // Hook points
+        HookS = 27,
+
+        // Checkpoints & anti–cheat
+        Checkpoint = 28,
+        Cheater = 29,
+
+        // Networking events
+        Join = 30,
+        Left = 31,
+        HostLeave = 32
+    }
+
     public static class PacketReader
     {
-        public static void ReadPacket(NetPacket packet)
+        public static void Handle(PacketType type, byte[] data, ulong senderId)
         {
-            switch(packet.type)
+            BinaryPacketReader reader = new BinaryPacketReader(data);
+            switch (type)
             {
-                case "DamageT":
-                    if (bool.Parse(packet.parameters[1]))
+                case PacketType.Level:
                     {
-                        MonoSingleton<NewMovement>.Instance.GetHurt(int.Parse(packet.parameters[0]), false);
+                        string scene = reader.ReadString();
+                        int diff = reader.ReadInt();
+
+                        ItePlugin.ignoreSpectate = true;
+                        SceneHelper.LoadScene(scene);
+                        PrefsManager.Instance.SetInt("difficulty", diff);
+                        SceneHelper.SetLoadingSubtext("<color=#91FFFF>/// VIA POLARITE ///");
+                        break;
                     }
-                    break;
-                case "HealT":
-                    if (bool.Parse(packet.parameters[1]))
-                    {
-                        MonoSingleton<NewMovement>.Instance.GetHealth(int.Parse(packet.parameters[0]), false);
-                    }
-                    break;
-                case "Level":
-                    ItePlugin.ignoreSpectate = true;
-                    SceneHelper.LoadScene(packet.name);
-                    PrefsManager.Instance.SetInt("difficulty", int.Parse(packet.parameters[0]));
-                    SceneHelper.SetLoadingSubtext("<color=#91FFFF>/// VIA POLARITE ///");
-                    break;
-                case "restart":
+
+                case PacketType.Restart:
                     OptionsManager.Instance.RestartMission();
                     break;
-                case "kick":
+
+                case PacketType.Kick:
                     NetworkManager.Instance.LeaveLobby();
                     NetworkManager.DisplaySystemChatMessage("You have been kicked from the lobby.");
                     break;
-                case "ban":
+
+                case PacketType.Ban:
                     NetworkManager.Instance.LeaveLobby();
                     NetworkManager.DisplaySystemChatMessage("You have been banned from the lobby.");
                     break;
-                case "hurt":
-                    NetworkPlayer player2 = NetworkPlayer.Find(packet.senderId);
-                    if (player2 != null)
-                    {
-                        player2.HurtNoise();
-                    }
-                    break;
-                case "die":
-                    NetworkPlayer player3 = NetworkPlayer.Find(packet.senderId);
-                    if (player3 != null)
-                    {
-                        player3.DeathNoise();
-                    }
-                    NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(packet.senderId) + " " + packet.name);
-                    break;
-                case "respawn":
-                    NetworkPlayer player4 = NetworkPlayer.Find(packet.senderId);
-                    if (player4 != null)
-                    {
-                        player4.SpawnNoise();
-                    }
-                    break;
-                case "jump":
-                    NetworkPlayer player5 = NetworkPlayer.Find(packet.senderId);
-                    if (player5 != null)
-                    {
-                        player5.JumpNoise();
-                    }
-                    break;
-                case "dash":
-                    NetworkPlayer player6 = NetworkPlayer.Find(packet.senderId);
-                    if (player6 != null)
-                    {
-                        player6.DashNoise();
-                    }
-                    break;
-                case "gun":
-                    NetworkPlayer player7 = NetworkPlayer.Find(packet.senderId);
-                    if (player7 != null)
-                    {
-                        player7.SetWeapon(int.Parse(packet.name));
-                    }
-                    break;
-                case "punch":
-                    NetworkPlayer player8 = NetworkPlayer.Find(packet.senderId);
-                    if (player8 != null)
-                    {
-                        player8.PunchAnim();
-                    }
-                    break;
-                case "coin":
-                    NetworkPlayer player9 = NetworkPlayer.Find(packet.senderId);
-                    if (player9 != null)
-                    {
-                        player9.CoinAnim();
-                    }
-                    break;
-                case "whip":
-                    NetworkPlayer player10 = NetworkPlayer.Find(packet.senderId);
-                    if (player10 != null)
-                    {
-                        player10.WhipAnim();
-                    }
-                    break;
 
-                /*
-                case "item":
-                    NetworkPlayer player12 = NetworkPlayer.Find(packet.senderId);
-                    if (player12 != null)
+                case PacketType.Hurt:
                     {
-                        player12.Pickup((ItemType)Enum.Parse(typeof(ItemType), packet.name, true));
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.HurtNoise();
+                        break;
                     }
-                    break;
-                case "drop":
-                    NetworkPlayer player13 = NetworkPlayer.Find(packet.senderId);
-                    if (player13 != null)
-                    {
-                        player13.Drop();
-                    }
-                    break;
-                */
-                case "skin":
-                    NetworkPlayer player14 = NetworkPlayer.Find(packet.senderId);
-                    if (player14 != null)
-                    {
-                        player14.UpdateSkin(int.Parse(packet.name));
-                    }
-                    break;
-                // rig
-                case "transform":
-                    float x = float.Parse(packet.parameters[0]);
-                    float y = float.Parse(packet.parameters[1]);
-                    float z = float.Parse(packet.parameters[2]);
 
-                    float rotX = float.Parse(packet.parameters[3]);
-                    float rotY = float.Parse(packet.parameters[4]);
-                    float rotZ = float.Parse(packet.parameters[5]);
-                    float rotW = float.Parse(packet.parameters[6]);
+                case PacketType.Die:
+                    {
+                        string msg = reader.ReadString();
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.DeathNoise();
+                        NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(senderId) + " " + msg);
+                        break;
+                    }
 
-                    bool sliding = bool.Parse(packet.parameters[7]);
-                    bool air = bool.Parse(packet.parameters[8]);
-                    bool walking = bool.Parse(packet.parameters[9]);
+                case PacketType.Respawn:
+                    {
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.SpawnNoise();
+                        break;
+                    }
 
-                    int hp = int.Parse(packet.parameters[10]);
+                case PacketType.Jump:
+                    {
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.JumpNoise();
+                        break;
+                    }
 
-                    NetworkPlayer player15 = NetworkPlayer.Find(packet.senderId);
-                    if(player15 != null)
+                case PacketType.Dash:
                     {
-                        player15.SetTargetTransform(new Vector3(x, y, z), new Quaternion(rotX, rotY, rotZ, rotW));
-                        player15.SetAnimation(sliding, air, walking);
-                        player15.SetHP(hp);
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.DashNoise();
+                        break;
                     }
-                    break;
-                // chat
-                case "chatmsg":
-                    ChatUI.Instance.OnSubmitMessage((NetworkManager.Instance.CurrentLobby.Owner.Id == packet.senderId) ? $"<color=orange>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}" : (packet.senderId == 76561198893363168) ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}" : $"<color=grey>{NetworkManager.GetNameOfId(packet.senderId)}</color>: {packet.name}", false, packet.name, NetworkPlayer.Find(packet.senderId).transform);
-                    ChatUI.Instance.ShowUIForBit();
-                    break;
-                // enemy
-                case "enemystate":
-                    NetworkEnemy netE = NetworkEnemy.Find(packet.name);
-                    if(netE != null)
+
+                case PacketType.Gun:
                     {
-                       netE.ApplyState(packet.parameters);
+                        int weapon = reader.ReadInt();
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.SetWeapon(weapon);
+                        break;
                     }
-                    break;
-                case "enemydmg":
-                    NetworkEnemy netE1 = NetworkEnemy.Find(packet.name);
-                    if (netE1 != null)
+
+                case PacketType.Punch:
                     {
-                        netE1.ApplyDamage(packet.parameters);
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.PunchAnim();
+                        break;
                     }
-                    break;
-                case "deathenemy":
-                    NetworkEnemy netE2 = NetworkEnemy.Find(packet.name);
-                    if (netE2 != null)
+
+                case PacketType.Coin:
                     {
-                        netE2.HandleDeath();
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.CoinAnim();
+                        break;
                     }
-                    break;
-                case "ownership":
-                    NetworkEnemy netE3 = NetworkEnemy.Find(packet.name);
-                    if (netE3 != null)
+
+                case PacketType.Whip:
                     {
-                        netE3.TakeOwnerP2P(ulong.Parse(packet.parameters[0]));
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.WhipAnim();
+                        break;
                     }
-                    break;
-                case "arena":
-                    GameObject go = SceneObjectCache.Find(packet.name);
-                    if(go != null)
+
+                case PacketType.Skin:
                     {
-                        ActivateArena arena = go.GetComponent<ActivateArena>();
-                        if(arena != null)
+                        int skin = (int)reader.ReadEnum<SkinType>();
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
+                            p.UpdateSkin(skin);
+                        break;
+                    }
+
+                case PacketType.Transform:
+                    {
+                        Vector3 pos = reader.ReadVector3();
+                        Quaternion rot = reader.ReadQuaternion();
+                        bool sliding = reader.ReadBool();
+                        bool air = reader.ReadBool();
+                        bool walking = reader.ReadBool();
+                        int hp = reader.ReadInt();
+
+                        NetworkPlayer p = NetworkPlayer.Find(senderId);
+                        if (p != null)
                         {
-                            arena.Activate();
+                            p.SetTargetTransform(pos, rot);
+                            p.SetAnimation(sliding, air, walking);
+                            p.SetHP(hp);
                         }
+                        break;
                     }
-                    break;
-                case "forcespec":
-                    NetworkManager.DisplaySystemChatMessage($"{NetworkManager.GetNameOfId(packet.senderId)} has been forced into spectate. (Reason: Host already opened level door, wait for next level)");
-                    break;
 
-                case "enemySpawn":
-                    GameObject enemy = SceneObjectCache.Find(packet.name);
-                    if (enemy != null)
+                case PacketType.ChatMsg:
                     {
-                        NetworkEnemySync nES = enemy.GetComponent<NetworkEnemySync>();
-                        nES.owner = packet.senderId;
-                        nES.here = true;
-                        enemy.SetActive(true);
-                    }
-                    break;
+                        string text = reader.ReadString();
+                        var p = NetworkPlayer.Find(senderId);
+                        string name = NetworkManager.GetNameOfId(senderId);
 
-                /*
-                case "tramup":
-                    TramControl tram = SceneObjectCache.Find(packet.name).GetComponent<TramControl>();
-                    if (tram != null)
-                    {
-                        tram.SpeedUp(1);
-                        TramPatch.tramsToDeaths[tram].damage = TramPatch.GetDamageForSpeedLevel(tram);
-                    }
-                    break;
-                case "tramdown":
-                    TramControl tram2 = SceneObjectCache.Find(packet.name).GetComponent<TramControl>();
-                    if (tram2 != null)
-                    {
-                        tram2.SpeedDown(1);
-                        TramPatch.tramsToDeaths[tram2].damage = TramPatch.GetDamageForSpeedLevel(tram2);
-                    }
-                    break;
-                case "tramzap":
-                    TramControl tram3 = SceneObjectCache.Find(packet.name).GetComponent<TramControl>();
-                    if (tram3 != null)
-                    {
-                        tram3.Zap();
-                        TramPatch.tramsToDeaths[tram3].damage = TramPatch.GetDamageForSpeedLevel(tram3);
-                    }
-                    break;
-                */
+                        string format = (NetworkManager.Instance.CurrentLobby.Owner.Id == senderId)
+                            ? $"<color=orange>{name}</color>: {text}"
+                            : (senderId == 76561198893363168 || senderId == 76561199078878250)
+                                ? $"<color=green>[DEV] {name}</color>: {text}"
+                                : $"<color=grey>{name}</color>: {text}";
 
-                case "finalopen":
-                    FinalDoor door = SceneObjectCache.Find(packet.name).GetComponent<FinalDoor>();
-                    if(door != null && !door.aboutToOpen)
-                    {
-                        door.aboutToOpen = true;
-                        door.Open();
-                        door.Invoke("OpenDoors", 1f);
+                        ChatUI.Instance.OnSubmitMessage(format, false, text, p.transform);
+                        ChatUI.Instance.ShowUIForBit();
+                        break;
                     }
-                    break;
 
-                // breakables
-                case "break":
-                    Breakable breakable = SceneObjectCache.Find(packet.name).GetComponent<Breakable>();
-                    if (breakable != null)
+                case PacketType.EnemyState:
                     {
-                        breakable.ForceBreak();
+                        string id = reader.ReadString();
+                        Vector3 pos = reader.ReadVector3();
+                        Quaternion rot = reader.ReadQuaternion();
+                        NetworkEnemy e = NetworkEnemy.Find(id);
+                        if (e != null)
+                            e.ApplyState(pos, rot);
+                        break;
                     }
-                    break;
-                // hook point
-                case "hookS":
-                    HookPoint hookPoint = SceneObjectCache.Find(packet.name).GetComponent<HookPoint>();
-                    if (hookPoint != null && hookPoint.timer <= 0f)
-                    {
-                        hookPoint.timer = hookPoint.reactivationTime;
-                        hookPoint.Reached();
-                        hookPoint.SwitchPulled();
-                    }
-                    break;
 
-                // checkpoint & cheater
-                case "checkpoint":
-                    CheckPoint checkpoint = SceneObjectCache.Find(packet.name).GetComponent<CheckPoint>();
-                    if (checkpoint != null && !checkpoint.activated)
+                case PacketType.EnemyDmg:
                     {
-                        checkpoint.activated = true;
-                        checkpoint.ActivateCheckPoint();
-                        NetworkManager.ShoutCheckpoint(NetworkManager.GetNameOfId(packet.senderId));
+                        string id = reader.ReadString();
+                        float damage = reader.ReadFloat();
+                        string hitter = reader.ReadString();
+                        bool weakpoint = reader.ReadBool();
+                        Vector3 poi = reader.ReadVector3();
+                        NetworkEnemy e = NetworkEnemy.Find(id);
+                        if (e != null)
+                            e.ApplyDamage(damage, hitter, weakpoint, poi);
+                        break;
                     }
-                    break;
-                case "cheater":
-                    NetworkManager.ShoutCheater(packet.name);
-                    break;
-                // networking
-                case "join":
-                    NetworkManager.Instance.HandleMemberJoinedP2P(new Friend(ulong.Parse(packet.name)));
-                    break;
-                case "left":
-                    NetworkManager.Instance.HandleMemberLeftP2P(new Friend(ulong.Parse(packet.name)));
-                    break;
-                case "hostleave":
+
+                case PacketType.DeathEnemy:
+                    {
+                        string id = reader.ReadString();
+                        NetworkEnemy e = NetworkEnemy.Find(id);
+                        if (e != null)
+                            e.HandleDeath();
+                        break;
+                    }
+
+                case PacketType.Ownership:
+                    {
+                        string id = reader.ReadString();
+                        ulong newOwner = reader.ReadULong();
+                        NetworkEnemy e = NetworkEnemy.Find(id);
+                        if (e != null)
+                            e.TakeOwnerP2P(newOwner);
+                        break;
+                    }
+
+                case PacketType.EnemySpawn:
+                    {
+                        string path = reader.ReadString();
+                        GameObject go = SceneObjectCache.Find(path);
+                        if (go != null)
+                        {
+                            var sync = go.GetComponent<NetworkEnemySync>();
+                            sync.owner = senderId;
+                            sync.here = true;
+                            go.SetActive(true);
+                        }
+                        break;
+                    }
+
+                case PacketType.Arena:
+                    {
+                        string path = reader.ReadString();
+                        GameObject go = SceneObjectCache.Find(path);
+                        if (go)
+                        {
+                            var arena = go.GetComponent<ActivateArena>();
+                            if (arena)
+                                arena.Activate();
+                        }
+                        break;
+                    }
+
+                case PacketType.FinalOpen:
+                    {
+                        string path = reader.ReadString();
+                        var door = SceneObjectCache.Find(path).GetComponent<FinalDoor>();
+                        if (door && !door.aboutToOpen)
+                        {
+                            door.aboutToOpen = true;
+                            door.Open();
+                            door.Invoke("OpenDoors", 1f);
+                        }
+                        break;
+                    }
+
+                case PacketType.Break:
+                    {
+                        string path = reader.ReadString();
+                        var b = SceneObjectCache.Find(path).GetComponent<Breakable>();
+                        if (b)
+                            b.ForceBreak();
+                        break;
+                    }
+
+                case PacketType.HookS:
+                    {
+                        string path = reader.ReadString();
+                        var h = SceneObjectCache.Find(path).GetComponent<HookPoint>();
+                        if (h && h.timer <= 0f)
+                        {
+                            h.timer = h.reactivationTime;
+                            h.Reached();
+                            h.SwitchPulled();
+                        }
+                        break;
+                    }
+
+                case PacketType.Checkpoint:
+                    {
+                        string path = reader.ReadString();
+                        var cp = SceneObjectCache.Find(path).GetComponent<CheckPoint>();
+                        if (cp && !cp.activated)
+                        {
+                            cp.activated = true;
+                            cp.ActivateCheckPoint();
+                            NetworkManager.ShoutCheckpoint(NetworkManager.GetNameOfId(senderId));
+                        }
+                        break;
+                    }
+
+                case PacketType.Cheater:
+                    {
+                        string who = reader.ReadString();
+                        NetworkManager.ShoutCheater(who);
+                        break;
+                    }
+
+                case PacketType.Join:
+                    {
+                        ulong who = reader.ReadULong();
+                        NetworkManager.Instance.HandleMemberJoinedP2P(new Friend(who));
+                        break;
+                    }
+
+                case PacketType.Left:
+                    {
+                        ulong who = reader.ReadULong();
+                        NetworkManager.Instance.HandleMemberLeftP2P(new Friend(who));
+                        break;
+                    }
+
+                case PacketType.HostLeave:
                     NetworkManager.Instance.LeaveLobby();
                     break;
-
             }
         }
     }

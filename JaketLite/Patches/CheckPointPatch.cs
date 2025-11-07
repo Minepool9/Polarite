@@ -87,12 +87,10 @@ namespace Polarite.Patches
         {
             if (NetworkManager.InLobby && !__instance.activated)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "checkpoint",
-                    name = SceneObjectCache.GetScenePath(__instance.gameObject),
-                });
-                NetworkManager.ShoutCheckpoint(NetworkManager.GetNameOfId(SteamClient.SteamId));
+                PacketWriter w = new PacketWriter();
+                w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+                NetworkManager.Instance.BroadcastPacket(PacketType.Checkpoint, w.GetBytes());
+                NetworkManager.ShoutCheckpoint(NetworkManager.GetNameOfId(NetworkManager.Id));
             }
         }
     }

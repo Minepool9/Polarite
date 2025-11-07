@@ -37,15 +37,10 @@ namespace Polarite.Patches
             }
             if(NetworkManager.HostAndConnected)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "Level",
-                    name = sceneName,
-                    parameters = new string[]
-                    {
-                        PrefsManager.Instance.GetInt("difficulty").ToString()
-                    }
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(sceneName);
+                w.WriteInt(PrefsManager.Instance.GetInt("difficulty"));
+                NetworkManager.Instance.BroadcastPacket(PacketType.Level, w.GetBytes());
                 NetworkManager.Instance.CurrentLobby.SetData("level", sceneName);
                 NetworkManager.Instance.CurrentLobby.SetData("difficulty", PrefsManager.Instance.GetInt("difficulty").ToString());
                 NetworkManager.Instance.CurrentLobby.SetData("forceS", "0");
@@ -68,11 +63,8 @@ namespace Polarite.Patches
             if(NetworkManager.HostAndConnected)
             {
                 NetworkManager.Instance.CurrentLobby.SetData("forceS", "0");
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "restart",
-                    name = "restart"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Restart, w.GetBytes());
             }
         }
     }

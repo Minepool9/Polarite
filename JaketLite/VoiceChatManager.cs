@@ -1,3 +1,5 @@
+// skipping on this for now since i need to get to work on making packets not json.
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,6 +49,9 @@ namespace Polarite.Multiplayer
 
         // AudioSources for remote players
         private Dictionary<ulong, AudioSource> remoteSources = new Dictionary<ulong, AudioSource>();
+
+        private Dictionary<ulong, AudioClip> voiceClips = new Dictionary<ulong, AudioClip>();
+        private Dictionary<ulong, int> writeHeads = new Dictionary<ulong, int>();
 
         // indicator UI
         private GameObject indicatorCanvas;
@@ -269,7 +274,7 @@ namespace Polarite.Multiplayer
                         {
                             NetworkPlayer plr = kv.Value;
                             if (plr == null) continue;
-                            if (plr.SteamId == SteamClient.SteamId.Value) continue; // don't send to self
+                            if (plr.SteamId == NetworkManager.Id) continue; // don't send to self
 
                             float dist = Vector3.Distance(myPos, plr.transform.position);
                             if (dist <= range)
@@ -310,55 +315,66 @@ namespace Polarite.Multiplayer
         // Called from NetworkManager when a non-JSON packet is received
         public void OnP2PDataReceived(byte[] buffer, int length, SteamId sender)
         {
-            if (length < 1) return;
-            if (buffer[0] != 0x56) return; // not our voice packet
+            if (length < 1 || buffer[0] != 0x56) return;
 
             int idx = 1;
-            if (length < idx + 2) return;
             ushort sr = BitConverter.ToUInt16(buffer, idx); idx += 2;
-            if (length < idx + 1) return;
             byte channels = buffer[idx++];
-            if (length < idx + 2) return;
             ushort samples = BitConverter.ToUInt16(buffer, idx); idx += 2;
 
             int expectedBytes = samples * 2;
             if (length < idx + expectedBytes) return;
 
-            float[] floats = new float[samples * channels];
-            int fIdx = 0;
+            // decode pcm16 -> float
+            float[] floats = new float[samples];
             float sum = 0f;
             for (int i = 0; i < samples; i++)
             {
                 short s = BitConverter.ToInt16(buffer, idx); idx += 2;
                 float v = s / (float)short.MaxValue;
-                floats[fIdx++] = v;
+                floats[i] *= 2f;
                 sum += v * v;
             }
 
             float rms = Mathf.Sqrt(sum / samples);
             float level = Mathf.Clamp01(rms * 5f);
 
-            // get or create audio source for sender
+            // name tag update
             ulong senderId = sender.Value;
-
-            // notify name tag
             NetworkPlayer plr = NetworkPlayer.Find(senderId);
             if (plr != null && plr.NameTag != null)
-            {
                 plr.NameTag.SetTalkingLevel(level);
-            }
 
-            // optionally drop playback if user disabled receiving
             if (!ItePlugin.receiveVoice.value)
                 return;
 
             AudioSource src = GetOrCreateSource(senderId);
 
-            // create clip and play
-            AudioClip clip = AudioClip.Create($"vc_{senderId}_{DateTime.Now.Ticks}", samples, channels, sr, false);
-            clip.SetData(floats, 0);
-            src.PlayOneShot(clip);
+            // make or retrieve persistent clip
+            if (!voiceClips.TryGetValue(senderId, out AudioClip clip) || clip == null)
+            {
+                // 2 second circular buffer at source sample rate
+                int clipSamples = sr * 2;
+                clip = AudioClip.Create($"vc_stream_{senderId}", clipSamples, 1, sr, false);
+                voiceClips[senderId] = clip;
+                writeHeads[senderId] = 0;
+
+                src.clip = clip;
+                src.loop = true;
+                src.Play();
+            }
+
+            int head = writeHeads[senderId];
+
+            // write incoming PCM floats to ring buffer
+            clip.SetData(floats, head);
+            head += samples;
+            if (head >= clip.samples)
+                head = 0;
+
+            writeHeads[senderId] = head;
         }
+
 
         private AudioSource GetOrCreateSource(ulong steamId)
         {
@@ -382,7 +398,7 @@ namespace Polarite.Multiplayer
             AudioSource src = go.AddComponent<AudioSource>();
             src.spatialBlend = 1f;
             src.rolloffMode = AudioRolloffMode.Logarithmic;
-            src.minDistance = 0.5f;
+            src.minDistance = 2f;
             // use configured proximity range for spatial maxDistance
             src.maxDistance = ItePlugin.voiceProximity.value;
             src.loop = false;

@@ -17,6 +17,7 @@ namespace Polarite.Multiplayer
 
         void OnEnable()
         {
+            // have to use steam id here
             if(GetComponent<NetworkEnemy>() == null && NetworkManager.InLobby)
             {
                 NetworkEnemy.Create(id, GetComponent<EnemyIdentifier>(), (GetComponent<EnemyIdentifier>().isBoss) ? SteamClient.SteamId : NetworkManager.Instance.CurrentLobby.Owner.Id);
@@ -25,11 +26,9 @@ namespace Polarite.Multiplayer
             {
                 here = true;
                 owner = (GetComponent<EnemyIdentifier>().isBoss) ? SteamClient.SteamId : NetworkManager.Instance.CurrentLobby.Owner.Id;
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "enemySpawn",
-                    name = id,
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(id);
+                NetworkManager.Instance.BroadcastPacket(PacketType.EnemySpawn, w.GetBytes());
             }
         }
     }

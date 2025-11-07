@@ -21,7 +21,7 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby && __instance.transform.parent.TryGetComponent<NetworkEnemy>(out var netE))
             {
-                netE.TakeOwnership(SteamClient.SteamId);
+                netE.TakeOwnership(NetworkManager.Id);
             }
         }
     }

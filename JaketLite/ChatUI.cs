@@ -182,11 +182,11 @@ namespace Polarite.Multiplayer
                 inputField.onSubmit.AddListener((string s) =>
                 {
                     OnSubmitMessage(
-                        (NetworkManager.Instance.CurrentLobby.Owner.Id == SteamClient.SteamId)
-                            ? $"<color=orange>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}"
-                            : (SteamClient.SteamId == 76561198893363168 || SteamClient.SteamId == 76561199078878250)
-                                ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}"
-                                : $"<color=grey>{NetworkManager.GetNameOfId(SteamClient.SteamId)}</color>: {TMPUtils.StripTMP(s)}",
+                        (NetworkManager.Instance.CurrentLobby.Owner.Id == NetworkManager.Id)
+                            ? $"<color=orange>{NetworkManager.GetNameOfId(NetworkManager.Id)}</color>: {TMPUtils.StripTMP(s)}"
+                            : (NetworkManager.Id == 76561198893363168 || NetworkManager.Id == 76561199078878250)
+                                ? $"<color=green>[DEV] {NetworkManager.GetNameOfId(NetworkManager.Id)}</color>: {TMPUtils.StripTMP(s)}"
+                                : $"<color=grey>{NetworkManager.GetNameOfId(NetworkManager.Id)}</color>: {TMPUtils.StripTMP(s)}",
                         true,
                         TMPUtils.StripTMP(s)
                     );
@@ -303,15 +303,10 @@ namespace Polarite.Multiplayer
 
             if (network)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "chatmsg",
-                    name = realMsg,
-                    parameters = new string[]
-                    {
-                        tts.ToString()
-                    }
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(realMsg);
+                w.WriteBool(tts);
+                NetworkManager.Instance.BroadcastPacket(PacketType.ChatMsg, w.GetBytes());
             }
 
             if (onlyShowForBit != null)

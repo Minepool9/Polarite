@@ -67,12 +67,10 @@ namespace Polarite.Multiplayer
             {
                 SceneObjectCache.Add(gameObject);
             }
-            NetworkManager.Instance.BroadcastPacket(new NetPacket
-            {
-                type = "ownership",
-                name = ID,
-                parameters = new string[] { Owner.ToString() }
-            });
+            PacketWriter w = new PacketWriter();
+            w.WriteString(ID);
+            w.WriteULong(Owner);
+            NetworkManager.Instance.BroadcastPacket(PacketType.Ownership, w.GetBytes());
             if (Enemy.isBoss && NetworkManager.InLobby && NetworkManager.Instance.CurrentLobby.MemberCount > 1)
             {
                 float mult = 1f + (Mathf.Max(0, NetworkManager.Instance.CurrentLobby.MemberCount - 1) * 1.5f);
@@ -110,7 +108,7 @@ namespace Polarite.Multiplayer
                 BroadcastDeath();
                 IsAlive = false;
             }
-            if (SteamClient.SteamId.Value == Owner)
+            if (NetworkManager.Id == Owner)
             {
                 TryBroadcastState();
             }
@@ -123,12 +121,10 @@ namespace Polarite.Multiplayer
         public void TakeOwnership(ulong newOwner)
         {
             Owner = newOwner;
-            NetworkManager.Instance.BroadcastPacket(new NetPacket
-            {
-                type = "ownership",
-                name = ID,
-                parameters = new string[] {newOwner.ToString()}
-            });
+            PacketWriter w = new PacketWriter();
+            w.WriteString(ID);
+            w.WriteULong(newOwner);
+            NetworkManager.Instance.BroadcastPacket(PacketType.Ownership, w.GetBytes());
         }
         public void TakeOwnerP2P(ulong newOwner) => Owner = newOwner;
 
@@ -202,36 +198,17 @@ namespace Polarite.Multiplayer
             lastPos = pos;
             lastRot = rot;
 
-            NetPacket packet = new NetPacket
-            {
-                type = "enemystate",
-                name = ID,
-                parameters = new string[]
-                {
-                    pos.x.ToString("F3"), pos.y.ToString("F3"), pos.z.ToString("F3"),
-                    rot.x.ToString("F3"), rot.y.ToString("F3"), rot.z.ToString("F3"), rot.w.ToString("F3")
-                }
-            };
+            PacketWriter w = new PacketWriter();
+            w.WriteString(ID);
+            w.WriteVector3(pos);
+            w.WriteQuaternion(rot);
 
-            NetworkManager.Instance.BroadcastPacket(packet);
+            NetworkManager.Instance.BroadcastPacket(PacketType.EnemyState, w.GetBytes());
         }
 
-        public void ApplyState(string[] parameters)
+        public void ApplyState(Vector3 pos, Quaternion rot)
         {
             if (Enemy == null) return;
-
-            Vector3 pos = new Vector3(
-                float.Parse(parameters[0]),
-                float.Parse(parameters[1]),
-                float.Parse(parameters[2])
-            );
-
-            Quaternion rot = new Quaternion(
-                float.Parse(parameters[3]),
-                float.Parse(parameters[4]),
-                float.Parse(parameters[5]),
-                float.Parse(parameters[6])
-            );
 
             targetPos = pos;
             targetRot = rot;
@@ -271,46 +248,30 @@ namespace Polarite.Multiplayer
         {
             if (!IsAlive) return;
 
-            NetPacket packet = new NetPacket()
-            {
-                type = "enemydmg",
-                name = ID,
-                parameters = new string[]
-                {
-                    damage.ToString("F1"),
-                    hitter,
-                    weakpoint.ToString(),
-                    point.x.ToString(), point.y.ToString(), point.z.ToString()
-                }
-            };
+            PacketWriter w = new PacketWriter();
+            w.WriteString(ID);
+            w.WriteFloat(damage);
+            w.WriteString(hitter);
+            w.WriteBool(weakpoint);
+            w.WriteVector3(point);
 
-            NetworkManager.Instance.BroadcastPacket(packet);
+            NetworkManager.Instance.BroadcastPacket(PacketType.EnemyDmg, w.GetBytes());
         }
         public void BroadcastDeath()
         {
             if (!IsAlive) return;
 
-            NetPacket packet = new NetPacket()
-            {
-                type = "deathenemy",
-                name = ID
-            };
-            NetworkManager.Instance.BroadcastPacket(packet);
+            PacketWriter w = new PacketWriter();
+            w.WriteString(ID);
+            NetworkManager.Instance.BroadcastPacket(PacketType.DeathEnemy, w.GetBytes());
         }
 
-        public void ApplyDamage(string[] parameters)
+        public void ApplyDamage(float damage, string hitter, bool weakpoint, Vector3 point)
         {
             if (Enemy == null || !IsAlive) return;
 
-            if (float.TryParse(parameters[0], out float damage))
-            {
-                string hitter = parameters[1];
-                Enemy.hitter = hitter;
-                bool weakpoint = bool.Parse(parameters[2]);
-                Vector3 part = new Vector3(float.Parse(parameters[3]), float.Parse(parameters[4]), float.Parse(parameters[5]));
-                EnemyIdentifierIdentifier[] eidIds = Enemy.GetComponents<EnemyIdentifierIdentifier>();
-                Enemy.DeliverDamage((weakpoint) ? Enemy.weakPoint : Enemy.gameObject, Vector3.zero, part, damage, false);
-            }
+            Enemy.hitter = hitter;
+            Enemy.DeliverDamage((weakpoint) ? Enemy.weakPoint : Enemy.gameObject, Vector3.zero, point, damage, false);
         }
 
         public void HandleDeath()

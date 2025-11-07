@@ -79,13 +79,13 @@ namespace Polarite.Multiplayer
         {
             SteamId = steamId;
             PlayerName = playerName;
-            name = (steamId != SteamClient.SteamId.Value) ? $"NetworkPlayer_{playerName}_{Random.Range(0, 100000)}" : "LocalPlayer";
-            if (SteamId == SteamClient.SteamId.Value)
+            name = (steamId != NetworkManager.Id) ? $"NetworkPlayer_{playerName}_{Random.Range(0, 100000)}" : "LocalPlayer";
+            if (SteamId == NetworkManager.Id)
             {
                 updatePos = StartCoroutine(UpdatePos());
                 SceneManager.sceneLoaded += OnSceneLoaded;
             }
-            if (LocalPlayer == null && steamId == SteamClient.SteamId.Value)
+            if (LocalPlayer == null && steamId == NetworkManager.Id)
             {
                 LocalPlayer = this;
             }
@@ -107,22 +107,18 @@ namespace Polarite.Multiplayer
                 bool grounded = !MonoSingleton<NewMovement>.Instance.gc.onGround;
                 bool walking = MonoSingleton<NewMovement>.Instance.walking;
                 Quaternion rotation = (sliding) ? Quaternion.LookRotation(MonoSingleton<NewMovement>.Instance.rb.velocity) : MonoSingleton<CameraController>.Instance.transform.rotation;
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "transform",
-                    name = SteamId.ToString(),
-                    parameters = new string[]
-                    {
-                        transform.position.x.ToString(), (sliding) ? (transform.position.y).ToString() : (transform.position.y - 1.5f).ToString(), transform.position.z.ToString(),
-                        MonoSingleton<CameraController>.Instance.transform.rotation.x.ToString(), rotation.y.ToString(), MonoSingleton<CameraController>.Instance.transform.rotation.z.ToString(), MonoSingleton<CameraController>.Instance.transform.rotation.w.ToString(),
+                PacketWriter writer = new PacketWriter();
+                Vector3 pos = new Vector3(transform.position.x, (sliding) ? (transform.position.y) : (transform.position.y - 1.5f), transform.position.z);
+                Quaternion rot = new Quaternion(MonoSingleton<CameraController>.Instance.transform.rotation.x, rotation.y, MonoSingleton<CameraController>.Instance.transform.rotation.z, MonoSingleton<CameraController>.Instance.transform.rotation.w);
+                writer.WriteVector3(pos);
+                writer.WriteQuaternion(rot);
+                writer.WriteBool(sliding);
+                writer.WriteBool(grounded);
+                writer.WriteBool(walking);
 
-                        // animation stuff
-                        sliding.ToString(), grounded.ToString(), walking.ToString(),
+                writer.WriteInt(MonoSingleton<NewMovement>.Instance.hp);
 
-                        // hp
-                        MonoSingleton<NewMovement>.Instance.hp.ToString(),
-                    }
-                });
+                NetworkManager.Instance.BroadcastPacket(PacketType.Transform, writer.GetBytes());
             }
         }
 
@@ -280,7 +276,7 @@ namespace Polarite.Multiplayer
 
         private void Update()
         {
-            if(updatePos == null && SteamId == SteamClient.SteamId.Value)
+            if(updatePos == null && SteamId == NetworkManager.Id)
             {
                 updatePos = StartCoroutine(UpdatePos());
             }
@@ -436,7 +432,7 @@ namespace Polarite.Multiplayer
 
             Animator animator = v2Rig.GetComponentInChildren<Animator>();
             Animator armAnim = v2Rig.transform.Find("v2_combined").GetComponentsInChildren<Animator>()[1];
-            if (id == SteamClient.SteamId.Value)
+            if (id == NetworkManager.Id)
             {
                 v2Rig.transform.Find("v2_combined").gameObject.SetActive(false);
                 nameT.SetActive(false);

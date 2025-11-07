@@ -22,11 +22,8 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby && damage > 0)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "hurt",
-                    name = "h"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Hurt, w.GetBytes());
             }
         }
         [HarmonyPatch(nameof(NewMovement.Respawn))]
@@ -35,11 +32,8 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "respawn",
-                    name = "r"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Respawn, w.GetBytes());
             }
         }
 
@@ -49,11 +43,8 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "jump",
-                    name = "j"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Jump, w.GetBytes());
             }
         }
         [HarmonyPatch("WallJump")]
@@ -62,11 +53,8 @@ namespace Polarite.Patches
         {
             if (NetworkManager.InLobby)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "jump",
-                    name = "j"
-                });
+                PacketWriter w = new PacketWriter();
+                NetworkManager.Instance.BroadcastPacket(PacketType.Jump, w.GetBytes());
             }
         }
         [HarmonyPatch(nameof(NewMovement.DeactivateMovement))]

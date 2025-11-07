@@ -32,11 +32,9 @@ namespace Polarite.Patches
             {
                 return false;
             }
-            NetworkManager.Instance.BroadcastPacket(new NetPacket
-            {
-                type = "arena",
-                name = SceneObjectCache.GetScenePath(__instance.gameObject),
-            });
+            PacketWriter w = new PacketWriter();
+            w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+            NetworkManager.Instance.BroadcastPacket(PacketType.Arena, w.GetBytes());
             return true;
         }
         [HarmonyPatch("OnEnable")]
@@ -47,11 +45,9 @@ namespace Polarite.Patches
             {
                 return false;
             }
-            NetworkManager.Instance.BroadcastPacket(new NetPacket
-            {
-                type = "arena",
-                name = SceneObjectCache.GetScenePath(__instance.gameObject),
-            });
+            PacketWriter w = new PacketWriter();
+            w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+            NetworkManager.Instance.BroadcastPacket(PacketType.Arena, w.GetBytes());
             return true;
         }
     }

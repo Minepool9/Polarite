@@ -43,8 +43,8 @@ namespace Polarite
             Button ban = newList.Find("Ban").GetComponent<Button>();
             Button steam = newList.Find("Steam").GetComponent<Button>();
 
-            kick.interactable = NetworkManager.HostAndConnected && id != SteamClient.SteamId.Value;
-            ban.interactable = NetworkManager.HostAndConnected && id != SteamClient.SteamId.Value;
+            kick.interactable = NetworkManager.HostAndConnected && id != NetworkManager.Id;
+            ban.interactable = NetworkManager.HostAndConnected && id != NetworkManager.Id;
 
             kick.onClick.AddListener(() =>
             {

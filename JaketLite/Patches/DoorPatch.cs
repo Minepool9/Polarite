@@ -44,11 +44,9 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby && !__instance.aboutToOpen)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "finalopen",
-                    name = SceneObjectCache.GetScenePath(__instance.gameObject)
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+                NetworkManager.Instance.BroadcastPacket(PacketType.FinalOpen, w.GetBytes());
             }
         }
     }

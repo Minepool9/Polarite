@@ -135,12 +135,10 @@ namespace Polarite
             {
                 if(NetworkManager.InLobby)
                 {
-                    NetworkManager.Instance.BroadcastPacket(new NetPacket
-                    {
-                        type = "skin",
-                        name = ((int)skin).ToString()
-                    });
-                    if(NetworkPlayer.LocalPlayer.testPlayer)
+                    PacketWriter write = new PacketWriter();
+                    write.WriteEnum(ItePlugin.skin.value);
+                    NetworkManager.Instance.BroadcastPacket(PacketType.Skin, write.GetBytes());
+                    if (NetworkPlayer.LocalPlayer.testPlayer)
                     {
                         NetworkPlayer.LocalPlayer.UpdateSkin((int)skin);
                     }
@@ -302,7 +300,7 @@ namespace Polarite
                     pList.gameObject.SetActive(false);
                     pMM.mainPanel.SetActive(false);
 
-                    pMM.lobbyName.text = $"{NetworkManager.GetNameOfId(SteamClient.SteamId)}'s Lobby";
+                    pMM.lobbyName.text = $"{NetworkManager.GetNameOfId(NetworkManager.Id)}'s Lobby";
                 }
             }
         }
@@ -437,6 +435,13 @@ namespace Polarite
             {
                 ui = gameObject.AddComponent<ChatUI>();
             }
+            /*
+            VoiceChatManager vcManager = gameObject.GetComponent<VoiceChatManager>();
+            if (vcManager == null)
+            {
+                vcManager = gameObject.AddComponent<VoiceChatManager>();
+            }
+            */
             if (MonoSingleton<CameraController>.Instance != null && MonoSingleton<CameraController>.Instance.GetComponent<SpectatorCam>() == null)
             {
                 SpectatorCam cam = MonoSingleton<CameraController>.Instance.gameObject.AddComponent<SpectatorCam>();

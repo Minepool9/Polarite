@@ -28,11 +28,9 @@ namespace Polarite.Patches
         {
             if(NetworkManager.InLobby && !___broken)
             {
-                NetworkManager.Instance.BroadcastPacket(new NetPacket
-                {
-                    type = "break",
-                    name = SceneObjectCache.GetScenePath(__instance.gameObject),
-                });
+                PacketWriter w = new PacketWriter();
+                w.WriteString(SceneObjectCache.GetScenePath(__instance.gameObject));
+                NetworkManager.Instance.BroadcastPacket(PacketType.Break, w.GetBytes());
             }
         }
     }
