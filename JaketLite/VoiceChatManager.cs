@@ -350,6 +350,7 @@ namespace Polarite.Multiplayer
                 short s = BitConverter.ToInt16(buffer, idx); idx += 2;
                 float v = s / (float)short.MaxValue;
                 floats[i] = v; // assign decoded float
+                floats[i] *= ItePlugin.volumeMult.value; // everyone was super quiet so
                 sum += v * v;
             }
 
