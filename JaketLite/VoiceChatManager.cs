@@ -146,9 +146,9 @@ namespace Polarite.Multiplayer
             {
                 if (Microphone.devices == null || Microphone.devices.Length == 0)
                     return;
-                for(int i = 0; i < Microphone.devices.Length; i++)
+                for (int i = 0; i < Microphone.devices.Length; i++)
                 {
-                    if(i == 0)
+                    if (i == 0)
                     {
                         ItePlugin.wheresMyMic.text = "";
                     }
@@ -350,6 +350,7 @@ namespace Polarite.Multiplayer
                 short s = BitConverter.ToInt16(buffer, idx); idx += 2;
                 float v = s / (float)short.MaxValue;
                 floats[i] = v; // assign decoded float
+                floats[i] *= ItePlugin.volumeMult.value; // everyone was super quiet so
                 sum += v * v;
             }
 
@@ -451,6 +452,7 @@ namespace Polarite.Multiplayer
             src.spatialBlend = 1f;
             src.rolloffMode = AudioRolloffMode.Logarithmic;
             src.minDistance = 2f;
+            src.dopplerLevel = 0f;
             // use configured proximity range for spatial maxDistance
             src.maxDistance = ItePlugin.voiceProximity.value;
             src.loop = false;

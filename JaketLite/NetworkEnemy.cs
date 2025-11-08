@@ -97,7 +97,15 @@ namespace Polarite.Multiplayer
         private void Update()
         {
             if (Enemy == null || !IsAlive) return;
-
+            // make sure swordsmachines try not to target anything
+            if(SceneHelper.CurrentScene == "Level 0-2" && Enemy.enemyType == EnemyType.Swordsmachine && !Enemy.isBoss)
+            {
+                if(globalTargetUpdater != null)
+                {
+                    StopCoroutine(globalTargetUpdater);
+                }
+                return;
+            }
             if (Owner == 0)
             {
                 TakeOwnership(NetworkManager.Instance.CurrentLobby.Owner.Id.Value);
