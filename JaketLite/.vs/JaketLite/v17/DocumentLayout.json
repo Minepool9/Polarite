@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\ultrakill mods\\Polarite\\JaketLite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\ultrakill mods\\polarite\\jaketlite\\iteplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\ultrakill mods\\polarite\\jaketlite\\voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\ultrakill mods\\Polarite\\JaketLite\\iteplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:iteplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -151,10 +155,6 @@
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:playerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\ultrakill mods\\Polarite\\JaketLite\\voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\ultrakill mods\\Polarite\\JaketLite\\nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -170,7 +170,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -178,19 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VirtuePatch.cs",
-              "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\VirtuePatch.cs",
-              "RelativeDocumentMoniker": "Patches\\VirtuePatch.cs",
-              "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\VirtuePatch.cs",
-              "RelativeToolTip": "Patches\\VirtuePatch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T10:43:00.353Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ForceOff.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\ForceOff.cs",
               "RelativeDocumentMoniker": "ForceOff.cs",
@@ -202,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "HeadRotate.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\HeadRotate.cs",
               "RelativeDocumentMoniker": "HeadRotate.cs",
@@ -214,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PacketReader.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\PacketReader.cs",
               "RelativeDocumentMoniker": "PacketReader.cs",
@@ -226,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "TramPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\TramPatch.cs",
               "RelativeDocumentMoniker": "Patches\\TramPatch.cs",
@@ -238,20 +226,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ItePlugin.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\ItePlugin.cs",
               "RelativeDocumentMoniker": "ItePlugin.cs",
               "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\ItePlugin.cs",
               "RelativeToolTip": "ItePlugin.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:36:42.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T00:36:42.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "NetworkManager.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\NetworkManager.cs",
               "RelativeDocumentMoniker": "NetworkManager.cs",
@@ -259,12 +246,11 @@
               "RelativeToolTip": "NetworkManager.cs",
               "ViewState": "AgIAAMACAAAAAAAAAABRwFIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:59:02.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T00:59:02.128Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "NetworkPlayer.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\NetworkPlayer.cs",
               "RelativeDocumentMoniker": "NetworkPlayer.cs",
@@ -276,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PacketWriter.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\PacketWriter.cs",
               "RelativeDocumentMoniker": "PacketWriter.cs",
@@ -288,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BinaryPacketReader.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\BinaryPacketReader.cs",
               "RelativeDocumentMoniker": "BinaryPacketReader.cs",
@@ -296,12 +282,36 @@
               "RelativeToolTip": "BinaryPacketReader.cs",
               "ViewState": "AgIAAJMAAAAAAAAAAIBJwAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:23:40.481Z",
+              "WhenOpened": "2025-11-07T07:23:40.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VoiceChatManager.cs",
+              "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\VoiceChatManager.cs",
+              "RelativeDocumentMoniker": "VoiceChatManager.cs",
+              "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\VoiceChatManager.cs",
+              "RelativeToolTip": "VoiceChatManager.cs",
+              "ViewState": "AgIAAPsBAAAAAAAAAAAYwIkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T23:48:06.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "VirtuePatch.cs",
+              "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\VirtuePatch.cs",
+              "RelativeDocumentMoniker": "Patches\\VirtuePatch.cs",
+              "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\VirtuePatch.cs",
+              "RelativeToolTip": "Patches\\VirtuePatch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T10:43:00.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "TimerForceSpectatePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\TimerForceSpectatePatch.cs",
               "RelativeDocumentMoniker": "Patches\\TimerForceSpectatePatch.cs",
@@ -313,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "SwapWeaponsPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\SwapWeaponsPatch.cs",
               "RelativeDocumentMoniker": "Patches\\SwapWeaponsPatch.cs",
@@ -325,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "SteamPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\SteamPatch.cs",
               "RelativeDocumentMoniker": "Patches\\SteamPatch.cs",
@@ -337,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "PunchPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\PunchPatch.cs",
               "RelativeDocumentMoniker": "Patches\\PunchPatch.cs",
@@ -349,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "ProjectilePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\ProjectilePatch.cs",
               "RelativeDocumentMoniker": "Patches\\ProjectilePatch.cs",
@@ -361,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "PauseMenuPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\PauseMenuPatch.cs",
               "RelativeDocumentMoniker": "Patches\\PauseMenuPatch.cs",
@@ -373,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "MeleePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\MeleePatch.cs",
               "RelativeDocumentMoniker": "Patches\\MeleePatch.cs",
@@ -385,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "MakeItSoYouCantCheatScores.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\MakeItSoYouCantCheatScores.cs",
               "RelativeDocumentMoniker": "Patches\\MakeItSoYouCantCheatScores.cs",
@@ -397,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "LoadLevelPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\LoadLevelPatch.cs",
               "RelativeDocumentMoniker": "Patches\\LoadLevelPatch.cs",
@@ -409,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "HurtPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\HurtPatch.cs",
               "RelativeDocumentMoniker": "Patches\\HurtPatch.cs",
@@ -421,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "HookPointPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\HookPointPatch.cs",
               "RelativeDocumentMoniker": "Patches\\HookPointPatch.cs",
@@ -433,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "GroundEnemyPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\GroundEnemyPatch.cs",
               "RelativeDocumentMoniker": "Patches\\GroundEnemyPatch.cs",
@@ -445,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "ExplodePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\ExplodePatch.cs",
               "RelativeDocumentMoniker": "Patches\\ExplodePatch.cs",
@@ -457,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "EnemyNetworkPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\EnemyNetworkPatch.cs",
               "RelativeDocumentMoniker": "Patches\\EnemyNetworkPatch.cs",
@@ -469,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "DoorPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\DoorPatch.cs",
               "RelativeDocumentMoniker": "Patches\\DoorPatch.cs",
@@ -481,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "DeathZonePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\DeathZonePatch.cs",
               "RelativeDocumentMoniker": "Patches\\DeathZonePatch.cs",
@@ -493,7 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "DashPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\DashPatch.cs",
               "RelativeDocumentMoniker": "Patches\\DashPatch.cs",
@@ -505,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "CheckPointPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\CheckPointPatch.cs",
               "RelativeDocumentMoniker": "Patches\\CheckPointPatch.cs",
@@ -517,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "CheaterPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\CheaterPatch.cs",
               "RelativeDocumentMoniker": "Patches\\CheaterPatch.cs",
@@ -529,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "BreakablePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\BreakablePatch.cs",
               "RelativeDocumentMoniker": "Patches\\BreakablePatch.cs",
@@ -541,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "BeamPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\BeamPatch.cs",
               "RelativeDocumentMoniker": "Patches\\BeamPatch.cs",
@@ -553,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "ArenaPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\ArenaPatch.cs",
               "RelativeDocumentMoniker": "Patches\\ArenaPatch.cs",
@@ -565,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "DeadPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\DeadPatch.cs",
               "RelativeDocumentMoniker": "Patches\\DeadPatch.cs",
@@ -577,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "ChatUI.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\ChatUI.cs",
               "RelativeDocumentMoniker": "ChatUI.cs",
@@ -589,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "NetworkEnemySync.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\NetworkEnemySync.cs",
               "RelativeDocumentMoniker": "NetworkEnemySync.cs",
@@ -601,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "NetworkEnemy.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\NetworkEnemy.cs",
               "RelativeDocumentMoniker": "NetworkEnemy.cs",
@@ -614,19 +624,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 37,
-              "Title": "VoiceChatManager.cs",
-              "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\VoiceChatManager.cs",
-              "RelativeDocumentMoniker": "VoiceChatManager.cs",
-              "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\VoiceChatManager.cs",
-              "RelativeToolTip": "VoiceChatManager.cs",
-              "ViewState": "AgIAAOMBAAAAAAAAAABRwIkBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T23:48:06.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
               "Title": "PlayerList.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\PlayerList.cs",
               "RelativeDocumentMoniker": "PlayerList.cs",
