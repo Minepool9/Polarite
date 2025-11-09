@@ -26,9 +26,14 @@ namespace Polarite.Patches
             }
         }
         [HarmonyPatch(nameof(EnemyIdentifier.DeliverDamage))]
-        [HarmonyPostfix]
+        [HarmonyPrefix]
         static void Damage(EnemyIdentifier __instance, ref float multiplier, ref Vector3 force, ref GameObject target, ref Vector3 hitPoint)
         {
+            if(__instance.TryGetComponent<NetworkPlayer>(out var netP) && multiplier > 0f && NetworkManager.Instance.CurrentLobby.GetData("pvp") == "1")
+            {
+                netP.HandleFriendlyFire(NetworkManager.Id, Mathf.RoundToInt(multiplier));
+                return;
+            }
             if(force == Vector3.zero)
             {
                 return;

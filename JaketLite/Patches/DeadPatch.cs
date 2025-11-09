@@ -27,6 +27,7 @@ namespace Polarite.Patches
                 w.WriteString(DeathMessage);
                 NetworkManager.Instance.BroadcastPacket(PacketType.Die, w.GetBytes());
                 NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(NetworkManager.Id) + " " + DeathMessage);
+                NetworkPlayer.ToggleEidForAll(false);
             }
         }
     }

@@ -186,6 +186,7 @@ namespace Polarite.Multiplayer
                 CurrentLobby.SetData("cheat", (canCheat) ? "1" : "0");
                 CurrentLobby.SetData("bh", (ItePlugin.bossHpIncrease.value) ? "1" : "0");
                 CurrentLobby.SetData("bhm", ItePlugin.bossHpMult.value.ToString());
+                CurrentLobby.SetData("pvp", (ItePlugin.pvpOn.value) ? "1" : "0");
                 onJoin?.Invoke(LobbyCodeUtil.ToBase36(CurrentLobby.Id));
                 SetRichPresenceForLobby(CurrentLobby);
                 CreateLocalPlayer();

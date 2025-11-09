@@ -64,9 +64,13 @@ namespace Polarite
 
         public static ConfigPanel cosmeticRelated = new ConfigPanel(config.rootPanel, "Cosmetic Config", "cosmetic");
 
+        public static ConfigHeader hostControl = new ConfigHeader(mainGameRelated, "<color=orange>These values are controlled by the host.</color>");
+
         public static BoolField bossHpIncrease = new BoolField(mainGameRelated, "Increase boss hp by player count", "g.b", true);
 
         public static FloatField bossHpMult = new FloatField(mainGameRelated, "Boss hp increase multiplier", "g.bm", 1.5f);
+
+        public static BoolField pvpOn = new BoolField(mainGameRelated, "PVP/Friendly fire", "pvp", false);
 
         public static KeyCodeField buttonToChat = new KeyCodeField(config.rootPanel, "Open chat key", "chat.key", KeyCode.T);
 
@@ -96,7 +100,7 @@ namespace Polarite
         public static BoolField receiveVoice = new BoolField(voiceRelated, "Receive voice chat", "voice.receive", true);
 
         // proximity distance for voice in world units
-        public static FloatField voiceProximity = new FloatField(voiceRelated, "Voice proximity range", "voice.range", 15f);
+        public static FloatField voiceProximity = new FloatField(voiceRelated, "Voice proximity range", "voice.range", 30f);
 
         public static EnumField<SkinType> skin = new EnumField<SkinType>(cosmeticRelated, "Player skin (only others can see)", "player.skin", SkinType.V1);
 
@@ -170,6 +174,13 @@ namespace Polarite
                 if(NetworkManager.HostAndConnected)
                 {
                     NetworkManager.Instance.CurrentLobby.SetData("bh", (v) ? "1" : "0");
+                }
+            };
+            pvpOn.postValueChangeEvent += (bool v) =>
+            {
+                if (NetworkManager.HostAndConnected)
+                {
+                    NetworkManager.Instance.CurrentLobby.SetData("pvp", (v) ? "1" : "0");
                 }
             };
             bossHpMult.postValueChangeEvent += (float v) =>
@@ -557,6 +568,7 @@ namespace Polarite
             NetworkManager.WasUsed = NetworkManager.InLobby;
             if(NetworkManager.InLobby)
             {
+                NetworkPlayer.ToggleEidForAll(true);
                 CleanLevelOfSoftlocks();
             }
         }

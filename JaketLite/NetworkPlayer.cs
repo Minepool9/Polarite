@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Polarite.Patches;
+
 using Steamworks;
 
 using TMPro;
@@ -398,6 +400,23 @@ namespace Polarite.Multiplayer
             }
         }
 
+        public void HandleFriendlyFire(ulong whoDidIt, int damage)
+        {
+            if(damage == 0)
+            {
+                damage = 1;
+            }
+            PacketWriter w = new PacketWriter();
+            w.WriteULong(whoDidIt);
+            w.WriteInt(damage);
+            NetworkManager.Instance.SendPacket(PacketType.PVP, w.GetBytes(), SteamId);
+            if(this == LocalPlayer)
+            {
+                // for testing
+                DoFriendlyDamage(whoDidIt, damage);
+            }
+        }
+
         public static NetworkPlayer Find(ulong id)
         {
             foreach (var p in NetworkManager.players)
@@ -454,18 +473,9 @@ namespace Polarite.Multiplayer
             HeadRotate headR = v2Rig.transform.Find("v2_combined").gameObject.AddComponent<HeadRotate>();
             headR.head = headT;
 
-            Destroy(v2Rig.GetComponent<EnemyIdentifier>());
             Destroy(v2Rig.GetComponent<V2>());
             Destroy(v2Rig.transform.Find("v2_combined").Find("v2_mdl").GetComponent<EnemySimplifier>());
             SkinnedMeshRenderer smr = v2Rig.transform.Find("v2_combined").Find("v2_mdl").GetComponent<SkinnedMeshRenderer>();
-
-            v2Rig.tag = "Untagged";
-            v2Rig.layer = 0;
-
-            EnsureAllObjectsAreCleaned(v2Rig.transform.Find("v2_combined").Find("metarig"), NetworkManager.Instance.CurrentLobby.Owner.Id == id);
-
-            v2Rig.transform.Find("v2_combined").gameObject.tag = "Untagged";
-            v2Rig.transform.Find("v2_combined").gameObject.layer = 0;
 
             foreach (Transform c in v2Rig.transform)
             {
@@ -535,6 +545,28 @@ namespace Polarite.Multiplayer
             {
                 ToggleCols(plr.Value.transform, value);
             }
+        }
+
+        public static void ToggleEid(Transform t, bool value)
+        {
+            EnemyIdentifier eid = t.GetComponent<EnemyIdentifier>();
+            eid.enabled = value;
+            eid.dead = false;
+            eid.health = Mathf.Infinity;
+        }
+
+        public static void ToggleEidForAll(bool value)
+        {
+            foreach (var plr in NetworkManager.players)
+            {
+                ToggleEid(plr.Value.transform, value);
+            }
+        }
+
+        public static void DoFriendlyDamage(ulong whoDidIt, int damage)
+        {
+            MonoSingleton<NewMovement>.instance.GetHurt(damage, false);
+            DeadPatch.DeathMessage = "was friendly fired by " + NetworkManager.GetNameOfId(whoDidIt);
         }
     }
 }

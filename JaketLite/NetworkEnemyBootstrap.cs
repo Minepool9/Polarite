@@ -28,7 +28,7 @@ namespace Polarite.Multiplayer
 
             foreach (EnemyIdentifier eid in GameObject.FindObjectsOfType<EnemyIdentifier>(true))
             {
-                if (eid.GetComponent<NetworkEnemySync>() == null)
+                if (eid.GetComponent<NetworkEnemySync>() == null && eid.GetComponent<NetworkPlayer>() == null)
                     eid.gameObject.AddComponent<NetworkEnemySync>();
             }
         }

@@ -30,6 +30,10 @@ namespace Polarite.Multiplayer
 
         public static NetworkEnemy Create(string id, EnemyIdentifier eid, ulong owner)
         {
+            if(eid.GetComponent<NetworkPlayer>() != null)
+            {
+                return null;
+            }
             var netE = eid.gameObject.AddComponent<NetworkEnemy>();
             netE.ID = id;
             netE.Enemy = eid;

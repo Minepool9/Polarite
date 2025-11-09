@@ -66,7 +66,9 @@ namespace Polarite.Multiplayer
         // cutscene skip voting
         SkipVoteRequest = 33,
         SkipVoteUpdate = 34,
-        SkipExecute = 35
+        SkipExecute = 35,
+
+        PVP = 36
     }
 
     public static class PacketReader
@@ -371,29 +373,37 @@ namespace Polarite.Multiplayer
                 case PacketType.HostLeave:
                     NetworkManager.Instance.LeaveLobby();
                     break;
-
-                case PacketType.SkipVoteRequest:
+                /*
+            case PacketType.SkipVoteRequest:
+                {
+                    bool accept = reader.ReadBool();
+                    if (NetworkManager.HostAndConnected)
                     {
-                        bool accept = reader.ReadBool();
-                        if (NetworkManager.HostAndConnected)
-                        {
-                            Polarite.Patches.SkipVotePatch.SkipVoteManager.HandleClientVote(senderId, accept);
-                        }
-                        break;
+                        Polarite.Patches.SkipVotePatch.SkipVoteManager.HandleClientVote(senderId, accept);
                     }
+                    break;
+                }
 
-                case PacketType.SkipVoteUpdate:
-                    {
-                        int acceptCount = reader.ReadInt();
-                        int needed = reader.ReadInt();
-                        int total = reader.ReadInt();
-                        Polarite.Patches.SkipVotePatch.SkipVoteManager.ApplyUpdateClientSide(acceptCount, needed, total);
-                        break;
-                    }
+            case PacketType.SkipVoteUpdate:
+                {
+                    int acceptCount = reader.ReadInt();
+                    int needed = reader.ReadInt();
+                    int total = reader.ReadInt();
+                    Polarite.Patches.SkipVotePatch.SkipVoteManager.ApplyUpdateClientSide(acceptCount, needed, total);
+                    break;
+                }
 
-                case PacketType.SkipExecute:
+            case PacketType.SkipExecute:
+                {
+                    Polarite.Patches.SkipVotePatch.SkipVoteManager.ExecuteSkipLocal();
+                    break;
+                }
+                */
+                case PacketType.PVP:
                     {
-                        Polarite.Patches.SkipVotePatch.SkipVoteManager.ExecuteSkipLocal();
+                        ulong who = reader.ReadULong();
+                        int dmg = reader.ReadInt();
+                        NetworkPlayer.DoFriendlyDamage(who, dmg);
                         break;
                     }
             }
