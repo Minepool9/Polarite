@@ -102,18 +102,18 @@ namespace Polarite.Multiplayer
         {
             if (Enemy == null || !IsAlive) return;
             // make sure swordsmachines try not to target anything
-            if(SceneHelper.CurrentScene == "Level 0-2" && Enemy.enemyType == EnemyType.Swordsmachine && !Enemy.isBoss)
+            if(SceneHelper.CurrentScene == "Level 0-2" && Enemy.enemyType == EnemyType.Swordsmachine)
             {
                 if(globalTargetUpdater != null)
                 {
                     StopCoroutine(globalTargetUpdater);
                 }
-                Enemy.target = null;
                 return;
             }
             if(BlindEnemies.Blind)
             {
                 Enemy.target = null;
+                return;
             }
             if (Owner == 0)
             {

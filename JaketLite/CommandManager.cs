@@ -53,7 +53,7 @@ namespace Polarite
 
             if (!levelName.StartsWith("Level", StringComparison.OrdinalIgnoreCase))
             {
-                levelName = $"Level {levelName}";
+                levelName = $"Level {levelName.ToUpper()}";
             }
             if(NetworkManager.HostAndConnected)
             {

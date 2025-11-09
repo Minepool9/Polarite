@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\users\\d1g1t\\source\\repos\\jaketlite\\polarite\\jaketlite\\patches\\nocheatsontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\nocheatsontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\doorpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\doorpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\networkenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:networkenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\cutsceneskippatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,12 +15,40 @@
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:iteplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\checkpointpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\checkpointpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\users\\d1g1t\\source\\repos\\jaketlite\\polarite\\jaketlite\\commandmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:commandmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\networkenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:networkenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\arenapatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\arenapatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\stopenemyoutlineerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\stopenemyoutlineerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\doorpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\doorpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\users\\d1g1t\\source\\repos\\jaketlite\\polarite\\jaketlite\\patches\\nocheatsontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\nocheatsontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:chatui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,24 +59,12 @@
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:packetreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\stopenemyoutlineerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\stopenemyoutlineerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\users\\d1g1t\\source\\repos\\jaketlite\\polarite\\jaketlite\\networkidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:networkidmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\users\\d1g1t\\source\\repos\\jaketlite\\polarite\\jaketlite\\headrotate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:headrotate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:nametag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:voicechatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\networkplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -154,10 +162,6 @@
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\dashpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\checkpointpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\checkpointpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\cheaterpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\cheaterpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -168,10 +172,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\beampatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\beampatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\patches\\arenapatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\arenapatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\networkenemysync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -193,7 +193,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -201,7 +201,141 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItePlugin.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ItePlugin.cs",
+              "RelativeDocumentMoniker": "ItePlugin.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ItePlugin.cs",
+              "RelativeToolTip": "ItePlugin.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFQAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:36:42.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StopEnemyOutlineError.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\StopEnemyOutlineError.cs",
+              "RelativeDocumentMoniker": "Patches\\StopEnemyOutlineError.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\StopEnemyOutlineError.cs",
+              "RelativeToolTip": "Patches\\StopEnemyOutlineError.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAwBEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T18:33:24.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CommandManager.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\CommandManager.cs",
+              "RelativeDocumentMoniker": "CommandManager.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\CommandManager.cs",
+              "RelativeToolTip": "CommandManager.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAIwDgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T22:35:30.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ArenaPatch.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ArenaPatch.cs",
+              "RelativeDocumentMoniker": "Patches\\ArenaPatch.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ArenaPatch.cs",
+              "RelativeToolTip": "Patches\\ArenaPatch.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAiwDEAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T07:30:37.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VoiceChatManager.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\VoiceChatManager.cs",
+              "RelativeDocumentMoniker": "VoiceChatManager.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\VoiceChatManager.cs",
+              "RelativeToolTip": "VoiceChatManager.cs",
+              "ViewState": "AgIAAOwBAAAAAAAAAAAiwMQBAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T23:48:06.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NameTag.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NameTag.cs",
+              "RelativeDocumentMoniker": "NameTag.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NameTag.cs",
+              "RelativeToolTip": "NameTag.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAlwEsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:46:47.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CheckPointPatch.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CheckPointPatch.cs",
+              "RelativeDocumentMoniker": "Patches\\CheckPointPatch.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CheckPointPatch.cs",
+              "RelativeToolTip": "Patches\\CheckPointPatch.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAiwFsAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T09:48:48.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CutsceneSkipPatch.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
+              "RelativeDocumentMoniker": "Patches\\CutsceneSkipPatch.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
+              "RelativeToolTip": "Patches\\CutsceneSkipPatch.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwIgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T20:24:39.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NetworkEnemy.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkEnemy.cs",
+              "RelativeDocumentMoniker": "NetworkEnemy.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkEnemy.cs",
+              "RelativeToolTip": "NetworkEnemy.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAUwIMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T00:35:54.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DoorPatch.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DoorPatch.cs",
+              "RelativeDocumentMoniker": "Patches\\DoorPatch.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DoorPatch.cs",
+              "RelativeToolTip": "Patches\\DoorPatch.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwDsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T10:42:45.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "NoCheatsOnType.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\NoCheatsOnType.cs",
               "RelativeDocumentMoniker": "Patches\\NoCheatsOnType.cs",
@@ -213,64 +347,8 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CommandManager.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\CommandManager.cs",
-              "RelativeDocumentMoniker": "CommandManager.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\CommandManager.cs",
-              "RelativeToolTip": "CommandManager.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAIwDwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T22:35:30.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ItePlugin.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ItePlugin.cs",
-              "RelativeDocumentMoniker": "ItePlugin.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ItePlugin.cs",
-              "RelativeToolTip": "ItePlugin.cs",
-              "ViewState": "AgIAAJEBAAAAAAAAAAAAAIsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:36:42.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PacketReader.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\PacketReader.cs",
-              "RelativeDocumentMoniker": "PacketReader.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\PacketReader.cs",
-              "RelativeToolTip": "PacketReader.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAAANwAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:37:38.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NetworkManager.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkManager.cs",
-              "RelativeDocumentMoniker": "NetworkManager.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkManager.cs",
-              "RelativeToolTip": "NetworkManager.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAAwLwAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:59:02.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "ChatUI.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ChatUI.cs",
               "RelativeDocumentMoniker": "ChatUI.cs",
@@ -283,46 +361,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DoorPatch.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DoorPatch.cs",
-              "RelativeDocumentMoniker": "Patches\\DoorPatch.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DoorPatch.cs",
-              "RelativeToolTip": "Patches\\DoorPatch.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwDgAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "NetworkManager.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkManager.cs",
+              "RelativeDocumentMoniker": "NetworkManager.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkManager.cs",
+              "RelativeToolTip": "NetworkManager.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAAwLwAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T10:42:45.896Z",
+              "WhenOpened": "2025-11-05T00:59:02.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CutsceneSkipPatch.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
-              "RelativeDocumentMoniker": "Patches\\CutsceneSkipPatch.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
-              "RelativeToolTip": "Patches\\CutsceneSkipPatch.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAowIgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "PacketReader.cs",
+              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\PacketReader.cs",
+              "RelativeDocumentMoniker": "PacketReader.cs",
+              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\PacketReader.cs",
+              "RelativeToolTip": "PacketReader.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAAANwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T20:24:39.353Z",
+              "WhenOpened": "2025-11-05T00:37:38.28Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "StopEnemyOutlineError.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\StopEnemyOutlineError.cs",
-              "RelativeDocumentMoniker": "Patches\\StopEnemyOutlineError.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\StopEnemyOutlineError.cs",
-              "RelativeToolTip": "Patches\\StopEnemyOutlineError.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAAwHQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T18:33:24.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "NetworkIDManager.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkIDManager.cs",
               "RelativeDocumentMoniker": "NetworkIDManager.cs",
@@ -335,20 +400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NetworkEnemy.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkEnemy.cs",
-              "RelativeDocumentMoniker": "NetworkEnemy.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkEnemy.cs",
-              "RelativeToolTip": "NetworkEnemy.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAYwFkAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:35:54.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "HeadRotate.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\HeadRotate.cs",
               "RelativeDocumentMoniker": "HeadRotate.cs",
@@ -361,20 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VoiceChatManager.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\VoiceChatManager.cs",
-              "RelativeDocumentMoniker": "VoiceChatManager.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\VoiceChatManager.cs",
-              "RelativeToolTip": "VoiceChatManager.cs",
-              "ViewState": "AgIAAPsBAAAAAAAAAAAiwA0CAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T23:48:06.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "NetworkPlayer.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NetworkPlayer.cs",
               "RelativeDocumentMoniker": "NetworkPlayer.cs",
@@ -386,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "TimerForceSpectatePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\TimerForceSpectatePatch.cs",
               "RelativeDocumentMoniker": "Patches\\TimerForceSpectatePatch.cs",
@@ -398,20 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "NameTag.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NameTag.cs",
-              "RelativeDocumentMoniker": "NameTag.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\NameTag.cs",
-              "RelativeToolTip": "NameTag.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAArwJEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T08:46:47.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "SwapWeaponsPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\SwapWeaponsPatch.cs",
               "RelativeDocumentMoniker": "Patches\\SwapWeaponsPatch.cs",
@@ -423,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "SteamPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\SteamPatch.cs",
               "RelativeDocumentMoniker": "Patches\\SteamPatch.cs",
@@ -435,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "PunchPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\PunchPatch.cs",
               "RelativeDocumentMoniker": "Patches\\PunchPatch.cs",
@@ -447,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "GroundEnemyPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\GroundEnemyPatch.cs",
               "RelativeDocumentMoniker": "Patches\\GroundEnemyPatch.cs",
@@ -459,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "TramPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\TramPatch.cs",
               "RelativeDocumentMoniker": "Patches\\TramPatch.cs",
@@ -471,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "BinaryPacketReader.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\BinaryPacketReader.cs",
               "RelativeDocumentMoniker": "BinaryPacketReader.cs",
@@ -483,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "PacketWriter.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\PacketWriter.cs",
               "RelativeDocumentMoniker": "PacketWriter.cs",
@@ -495,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Polarite",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Polarite.csproj",
               "RelativeDocumentMoniker": "Polarite.csproj",
@@ -506,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "ForceOff.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\ForceOff.cs",
               "RelativeDocumentMoniker": "ForceOff.cs",
@@ -518,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "VirtuePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\VirtuePatch.cs",
               "RelativeDocumentMoniker": "Patches\\VirtuePatch.cs",
@@ -530,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "ProjectilePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ProjectilePatch.cs",
               "RelativeDocumentMoniker": "Patches\\ProjectilePatch.cs",
@@ -542,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "PauseMenuPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\PauseMenuPatch.cs",
               "RelativeDocumentMoniker": "Patches\\PauseMenuPatch.cs",
@@ -554,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "MeleePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\MeleePatch.cs",
               "RelativeDocumentMoniker": "Patches\\MeleePatch.cs",
@@ -566,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "MakeItSoYouCantCheatScores.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\MakeItSoYouCantCheatScores.cs",
               "RelativeDocumentMoniker": "Patches\\MakeItSoYouCantCheatScores.cs",
@@ -578,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "LoadLevelPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\LoadLevelPatch.cs",
               "RelativeDocumentMoniker": "Patches\\LoadLevelPatch.cs",
@@ -590,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "HurtPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\HurtPatch.cs",
               "RelativeDocumentMoniker": "Patches\\HurtPatch.cs",
@@ -602,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "HookPointPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\HookPointPatch.cs",
               "RelativeDocumentMoniker": "Patches\\HookPointPatch.cs",
@@ -614,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "ExplodePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ExplodePatch.cs",
               "RelativeDocumentMoniker": "Patches\\ExplodePatch.cs",
@@ -626,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "EnemyNetworkPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\EnemyNetworkPatch.cs",
               "RelativeDocumentMoniker": "Patches\\EnemyNetworkPatch.cs",
@@ -638,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "DeathZonePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DeathZonePatch.cs",
               "RelativeDocumentMoniker": "Patches\\DeathZonePatch.cs",
@@ -650,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "DashPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DashPatch.cs",
               "RelativeDocumentMoniker": "Patches\\DashPatch.cs",
@@ -662,19 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "CheckPointPatch.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CheckPointPatch.cs",
-              "RelativeDocumentMoniker": "Patches\\CheckPointPatch.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CheckPointPatch.cs",
-              "RelativeToolTip": "Patches\\CheckPointPatch.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAiwFsAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:48:48.944Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "CheaterPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\CheaterPatch.cs",
               "RelativeDocumentMoniker": "Patches\\CheaterPatch.cs",
@@ -686,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "BreakablePatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\BreakablePatch.cs",
               "RelativeDocumentMoniker": "Patches\\BreakablePatch.cs",
@@ -698,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "BeamPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\BeamPatch.cs",
               "RelativeDocumentMoniker": "Patches\\BeamPatch.cs",
@@ -710,19 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ArenaPatch.cs",
-              "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ArenaPatch.cs",
-              "RelativeDocumentMoniker": "Patches\\ArenaPatch.cs",
-              "ToolTip": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\ArenaPatch.cs",
-              "RelativeToolTip": "Patches\\ArenaPatch.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAiwDEAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T07:30:37.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "DeadPatch.cs",
               "DocumentMoniker": "C:\\Users\\D1g1t\\source\\repos\\JaketLite\\Polarite\\JaketLite\\Patches\\DeadPatch.cs",
               "RelativeDocumentMoniker": "Patches\\DeadPatch.cs",

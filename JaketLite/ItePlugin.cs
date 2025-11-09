@@ -80,7 +80,7 @@ namespace Polarite
         public static EnumField<VoiceMode> voiceMode = new EnumField<VoiceMode>(voiceRelated, "Voice mode", "voice.mode", VoiceMode.PushToTalk);
 
         // voice quality setting
-        public static EnumField<VoiceQuality> voiceQuality = new EnumField<VoiceQuality>(voiceRelated, "Voice quality", "voice.quality", VoiceQuality.Medium);
+        public static EnumField<VoiceQuality> voiceQuality = new EnumField<VoiceQuality>(voiceRelated, "Voice quality", "voice.quality", VoiceQuality.High); // medium didn't sound good to other people
 
         public static IntField volume = new IntField(voiceRelated, "Volume", "voice.volume", 25);
 
@@ -134,8 +134,7 @@ namespace Polarite
             "Exteriors/Armboy/Cube",
             "3 - Fuckatorium/3 Stuff(Clone)/EntranceCloser",
             "Main/Exterior/ExteriorStuff(Clone)/SecuritySystemFight/ArenaWalls",
-            "Main/Interior/InteriorStuff(Clone)(Clone)/BrainFight/EntryForceField",
-            "Outdoors/10 - Ambush Station/10 Nonstuff/Barrier"
+            "Main/Interior/InteriorStuff(Clone)(Clone)/BrainFight/EntryForceField"
         };
 
 
