@@ -1,3 +1,4 @@
+/*
 using HarmonyLib;
 using UnityEngine;
 using Polarite.Multiplayer;
@@ -22,3 +23,4 @@ namespace Polarite.Patches
         }
     }
 }
+*/

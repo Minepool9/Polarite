@@ -1,3 +1,4 @@
+/*
 using HarmonyLib;
 using Polarite.Multiplayer;
 using System;
@@ -46,6 +47,9 @@ namespace Polarite.Patches
                 w.WriteInt(neededToSkip);
                 w.WriteInt(total);
                 NetworkManager.Instance.BroadcastPacket(PacketType.SkipVoteUpdate, w.GetBytes());
+
+                // make host apply the same update locally so host UI shows voting text
+                ApplyUpdateClientSide(acceptCount, neededToSkip, total);
 
                 if (acceptCount >= neededToSkip)
                 {
@@ -192,3 +196,4 @@ namespace Polarite.Patches
         }
     }
 }
+*/

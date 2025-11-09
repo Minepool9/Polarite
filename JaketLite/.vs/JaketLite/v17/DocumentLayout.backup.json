@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\ultrakill mods\\Polarite\\JaketLite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\ultrakill mods\\polarite\\jaketlite\\patches\\textoverridepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\textoverridepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|c:\\ultrakill mods\\polarite\\jaketlite\\patches\\cutsceneskippatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\cutsceneskippatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\ultrakill mods\\Polarite\\JaketLite\\patches\\textoverridepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|solutionrelative:patches\\textoverridepatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F807CB4-4D22-4300-ADF4-C04802F7AB19}|Polarite.csproj|C:\\ultrakill mods\\Polarite\\JaketLite\\headrotate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -185,7 +185,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -193,26 +193,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TextOverridePatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\TextOverridePatch.cs",
               "RelativeDocumentMoniker": "Patches\\TextOverridePatch.cs",
               "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\TextOverridePatch.cs",
               "RelativeToolTip": "Patches\\TextOverridePatch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T11:44:38.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T11:44:38.006Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CutsceneSkipPatch.cs",
               "DocumentMoniker": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
               "RelativeDocumentMoniker": "Patches\\CutsceneSkipPatch.cs",
               "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\Patches\\CutsceneSkipPatch.cs",
               "RelativeToolTip": "Patches\\CutsceneSkipPatch.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAvwDYAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAowCYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-08T20:24:39.353Z",
               "EditorCaption": ""
@@ -297,9 +296,10 @@
               "RelativeDocumentMoniker": "PacketReader.cs",
               "ToolTip": "C:\\ultrakill mods\\Polarite\\JaketLite\\PacketReader.cs",
               "RelativeToolTip": "PacketReader.cs",
-              "ViewState": "AgIAAM8AAAAAAAAAAAAYwJIBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJEBAAAAAAAAAABBwJIBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T00:37:38.28Z"
+              "WhenOpened": "2025-11-05T00:37:38.28Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
