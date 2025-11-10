@@ -602,10 +602,13 @@ namespace Polarite.Multiplayer
                         byte[] data = reader.ReadBytes();
 
                         // don’t handle our own stuff
-                        if (sender == NetworkManager.Id)
+                        if (sender == Id)
                             continue;
 
-                        PacketReader.Handle(type, data, sender);
+                        // check for people lying about what user they are within packets
+                        if (sender != id)
+
+                        Handle(type, data, sender);
                     }
                     catch (Exception ex)
                     {
