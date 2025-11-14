@@ -11,6 +11,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Polarite.Multiplayer
 {
@@ -104,6 +105,27 @@ namespace Polarite.Multiplayer
             return path;
         }
 
+        public static string GetOrCreatePath(GameObject obj)
+        {
+            if (obj == null) return "";
+
+            string scenePath = GetScenePath(obj);
+            if (!string.IsNullOrEmpty(scenePath) && scenePath.StartsWith("/"))
+                return scenePath;
+
+            int id = obj.GetInstanceID();
+            if (idToPath.TryGetValue(id, out string existingDynamic))
+                return existingDynamic;
+
+            string dynPath = $"__dynamic/{obj.name}#{id}_{DateTime.UtcNow.Ticks}";
+
+            pathToObject[dynPath] = obj;
+            idToPath[id] = dynPath;
+
+            return dynPath;
+        }
+
+
         public static GameObject Find(string path)
         {
             if (string.IsNullOrEmpty(path))
@@ -161,6 +183,13 @@ namespace Polarite.Multiplayer
         {
             if (obj == null) return;
             string path = GetScenePath(obj);
+            pathToObject[path] = obj;
+            idToPath[obj.GetInstanceID()] = path;
+        }
+
+        public static void Add(string path, GameObject obj)
+        {
+            if (obj == null || string.IsNullOrEmpty(path)) return;
             pathToObject[path] = obj;
             idToPath[obj.GetInstanceID()] = path;
         }

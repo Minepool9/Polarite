@@ -127,12 +127,13 @@ namespace Polarite.Multiplayer
 
                         NetworkPlayer.Find(senderId)?.DeathNoise();
                         NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(senderId) + " " + msg);
-
+                        /*
                         if(DeadPatch.SpectateOnDeath)
                         {
                             DeadPatch.DeadPlayers++;
                             DeadPatch.DeadPs.Add(NetworkPlayer.Find(senderId));
                         }
+                        */
                         break;
                     }
 
@@ -252,7 +253,7 @@ namespace Polarite.Multiplayer
                         Quaternion rot = reader.ReadQuaternion();
                         NetworkEnemy e = NetworkEnemy.Find(id);
                         if (e != null)
-                            e.ApplyState(e.transform.position, e.transform.rotation, pos, rot);
+                            e.ApplyState(pos, rot);
                         break;
                     }
 
@@ -304,6 +305,7 @@ namespace Polarite.Multiplayer
                         bool boss = reader.ReadBool();
 
                         EnemyIdentifier eid = SceneObjectCache.TrySpawnEnemy(path, type1, pos, rot);
+                        NetworkEnemy.Create(path, eid, senderId);
                         eid.name = name;
                         eid.isBoss = boss;
                         if(boss && eid.GetComponent<BossHealthBar>() == null)

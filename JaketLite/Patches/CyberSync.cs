@@ -118,6 +118,9 @@ namespace Polarite.Patches
         [HarmonyPrefix]
         static bool GameOvering()
         {
+            // for now
+            return true;
+
             if (!NetworkManager.InLobby)
                 return true;
 

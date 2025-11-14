@@ -8,6 +8,8 @@ using HarmonyLib;
 
 using Polarite.Multiplayer;
 
+using Steamworks;
+
 using UnityEngine;
 
 namespace Polarite.Patches
@@ -21,11 +23,12 @@ namespace Polarite.Patches
         {
             if (__instance.GetComponent<NetworkEnemy>() == null && __instance.gameObject.scene.name != null && NetworkManager.InLobby)
             {
-                if(!SceneObjectCache.Contains(__instance.gameObject))
+                string newPath = SceneObjectCache.GetOrCreatePath(__instance.gameObject);
+                if (!SceneObjectCache.Contains(__instance.gameObject))
                 {
-                    SceneObjectCache.Add(__instance.gameObject);
+                    SceneObjectCache.Add(newPath, __instance.gameObject);
                 }
-                NetworkEnemy.Create(SceneObjectCache.GetScenePath(__instance.gameObject), __instance, NetworkManager.Instance.CurrentLobby.Owner.Id);
+                NetworkEnemy.Create(newPath, __instance, NetworkManager.Id);
             }
         }
         [HarmonyPatch(nameof(EnemyIdentifier.DeliverDamage))]

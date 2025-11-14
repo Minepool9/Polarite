@@ -61,6 +61,7 @@ namespace Polarite.Patches
                 NetworkManager.Instance.BroadcastPacket(PacketType.Die, w.GetBytes());
                 NetworkManager.DisplayGameChatMessage(NetworkManager.GetNameOfId(NetworkManager.Id) + " " + DeathMessage);
                 NetworkPlayer.ToggleEidForAll(false);
+                /*
                 if(SpectateOnDeath)
                 {
                     DeadPlayers++;
@@ -69,6 +70,7 @@ namespace Polarite.Patches
                     __instance.EndSequence();
                     __instance.deathScreen.SetActive(false);
                 }
+                */
             }
         }
         public static void Respawn(Vector3 pos, Quaternion rot)
